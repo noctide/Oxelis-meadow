@@ -1,0 +1,12 @@
+
+# personal terms the guard must refuse (never committed)
+tools/.private-terms
+private/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
+*.pkl
+!templates/hello-ml/models/*.onnx

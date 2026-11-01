@@ -1,0 +1,16 @@
+name: check
+on: [push, pull_request]
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Repository guard (personal data, secrets, binary files)
+        run: python3 tools/check-repo.py --all
+      - name: Guard tests
+        run: python3 tools/test-check-repo.py
+      - name: Commit addresses
+        run: |
+          bad=$(git log --format='%h %ae %ce' | grep -vE '(@users\.noreply\.github\.com|noreply@anthropic\.com|noreply@github\.com)' || true)
+          if [ -n "$bad" ]; then echo "personal e-mail addresses in commits:"; echo "$bad"; exit 1; fi

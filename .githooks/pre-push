@@ -1,0 +1,4 @@
+#!/bin/sh
+# Refuses to push commits that carry a personal e-mail address, and re-checks every tracked file.
+python3 "$(git rev-parse --show-toplevel)/tools/check-repo.py" --authors || exit 1
+exec python3 "$(git rev-parse --show-toplevel)/tools/check-repo.py" --all

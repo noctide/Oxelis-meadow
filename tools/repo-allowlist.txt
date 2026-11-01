@@ -1,0 +1,5 @@
+# Binary files that may be committed (glob patterns, one per line). Only generated plugin archives
+# and original material belong here: never a screenshot, and never somebody else's model or program.
+dist/*.zip
+crates/oxelis-ml/tests/data/*.onnx
+templates/hello-ml/models/*.onnx
