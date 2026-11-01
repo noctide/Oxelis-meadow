@@ -1,0 +1,135 @@
+{
+  "format": 1,
+  "plugins": [
+    {
+      "author": "Oxelis",
+      "description": "A panel next to the selection: its size, and how many lines, words and characters were recognised.",
+      "id": "selection-stats",
+      "kinds": [
+        "panels"
+      ],
+      "name": "Selection stats",
+      "net": [],
+      "sha256": "735dd52ad670951fbe43a378406f6f7d25e42eee8f161960255f0452a79aa4b6",
+      "size": 804,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/selection-stats-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
+      "description": "Two buttons for recognised text: copy it as one paragraph, copy it without blank lines. Also trims trailing spaces of every recognised line.",
+      "id": "text-tools",
+      "kinds": [
+        "buttons",
+        "events"
+      ],
+      "name": "Text tools",
+      "net": [],
+      "sha256": "481dfb5d9318bbd54db727e7008bdc182a75c2b124503a05686fb5edad75f972",
+      "size": 959,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/text-tools-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
+      "description": "Amber frame and a dark warm toolbar; the toolbar prefers to sit above the selection.",
+      "id": "theme-amber",
+      "kinds": [
+        "theme",
+        "layout"
+      ],
+      "name": "Amber theme",
+      "net": [],
+      "sha256": "79ddef154868a554b2b67963aa097be5de6e7e6f6451ccd86ee9436c537284b6",
+      "size": 497,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/theme-amber-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
+      "description": "DeepL API (free or pro key). Put the key in the plugin's settings.",
+      "id": "translate-deepl",
+      "kinds": [
+        "translate"
+      ],
+      "name": "DeepL",
+      "net": [
+        "api-free.deepl.com",
+        "api.deepl.com"
+      ],
+      "sha256": "72370958b224db8853ba1e9ec7e5b2173ffcd1341ce26fa4fac53cb049f65560",
+      "size": 1297,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-deepl-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
+      "description": "Translation through Google's public web endpoint. No key. Unofficial: it can change or throttle without notice.",
+      "id": "translate-google",
+      "kinds": [
+        "translate"
+      ],
+      "name": "Google Translate (web)",
+      "net": [
+        "translate.googleapis.com"
+      ],
+      "sha256": "aa326cda32f0da1af5ada2f65f4b5b7bb989b55bcc25a63a6595a45ea5129bd2",
+      "size": 1448,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-google-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
+      "description": "Translation with a LibreTranslate server (Argos models) that you run yourself, for example `libretranslate` or the Docker image on http://localhost:5000. Nothing leaves your machine. The address you enter is the only host this plugin can reach.",
+      "id": "translate-libre",
+      "kinds": [
+        "translate"
+      ],
+      "name": "LibreTranslate (offline, on this machine)",
+      "net": [],
+      "sha256": "82bd3b8230326561167b65c8a41687c64288f9277f9403126fd143201bc738f1",
+      "size": 1354,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-libre-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
+      "description": "Free translation memory with a documented public API. No key; about 5000 characters a day per address. Quality is below the big engines.",
+      "id": "translate-mymemory",
+      "kinds": [
+        "translate"
+      ],
+      "name": "MyMemory",
+      "net": [
+        "api.mymemory.translated.net"
+      ],
+      "sha256": "8a0e116259d5da96588304e2d3f47a57eef637bd513b3e8398adc1e76e654df0",
+      "size": 1351,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-mymemory-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
+      "description": "Translation with any large language model behind an OpenAI-compatible chat API: OpenAI, DeepSeek, a model on this machine (Ollama: http://localhost:11434/v1, no key needed, works offline). The address you enter is the only host this plugin can reach.",
+      "id": "translate-openai",
+      "kinds": [
+        "translate"
+      ],
+      "name": "LLM (OpenAI-compatible)",
+      "net": [],
+      "sha256": "76716ed0f74361b871200030bb9b26a91e93b4a772c1b14ad114677b2d3e139c",
+      "size": 1836,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-openai-0.1.0.zip",
+      "version": "0.1.0"
+    }
+  ],
+  "signature": "beef6ff806ec8efef50bdda5ead4b86135ff51ceb93cc951b281b15c9bd92e352d50472f083f5d43d6a8c1616f9d4a8268ba132a75e37f18a0ca839002554107"
+}
