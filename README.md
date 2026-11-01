@@ -1,5 +1,7 @@
 # oxelis-meadow
 
+**English** | [简体中文](README.zh-CN.md)
+
 Plugin hub of [Oxelis](https://github.com/noctide/Oxelis): the official plugins, the signed catalog the application browses, the plugin SDK and templates.
 
 Oxelis is a compact container: screen capture, text layout, editor panels and a plugin host. It contains no translation engine, no OCR or translation model and no network client of its own. These capabilities are provided by plugins, which are installed by the user from this repository or from their authors. Models and programs that belong to others are never bundled with Oxelis; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
