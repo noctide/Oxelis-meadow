@@ -25,6 +25,7 @@ The folder determines the trust level; a plugin cannot declare itself official.
 | [`translate-openai`](official/translate-openai) | Any OpenAI-compatible chat API, including local servers | API address, optionally a key |
 | [`translate-mtran`](official/translate-mtran) | MTranServer, offline | a running server |
 | [`mcp-server`](official/mcp-server) | Switch and settings for the MCP bridge | none |
+| [`language-zh-tw`](official/language-zh-tw) | Traditional Chinese (Taiwan) interface language | none |
 | [`text-tools`](official/text-tools) | Buttons for recognized text | none |
 | [`selection-stats`](official/selection-stats) | Statistics panel | none |
 | [`theme-amber`](official/theme-amber) | Example theme and layout | none |
@@ -42,7 +43,7 @@ The translator is selected with the environment variable `OXELIS_TRANSLATE_ENGIN
 * [`docs/plugin-api.md`](docs/plugin-api.md): the API reference.
 * [`sdk/oxelis.d.ts`](sdk/oxelis.d.ts): TypeScript declarations.
 * [`llms.txt`](llms.txt): a condensed reference intended for AI assistants.
-* [`templates/hello-translate`](templates/hello-translate) and [`templates/hello-ml`](templates/hello-ml): starting points.
+* [`templates/hello-translate`](templates/hello-translate) and [`templates/hello-ml`](templates/hello-ml) and [`templates/hello-language`](templates/hello-language): starting points.
 
 A plugin is a folder containing `manifest.json` and, in most cases, `main.js`. Each plugin runs in its own QuickJS sandbox with a memory limit of 48 MB and a time limit of 60 seconds per call. Network access is restricted to the hosts named in the manifest, over https (plain http is accepted only for `localhost` and `127.0.0.1`).
 

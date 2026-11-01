@@ -50,6 +50,7 @@ Fonts are used by name from the user's system and are not distributed with Oxeli
 |---|---|---|---|
 | RapidOCR (rapidocr, rapidocr-onnxruntime) | RapidAI | Apache-2.0 | Reference OCR pipeline in `prototype/` |
 | OpenCV (opencv-python-headless) | OpenCV team | Apache-2.0 | Image operations in `prototype/` |
+| OpenCC (opencc-python-reimplemented) | BYVoid and contributors | Apache-2.0 | Converted the Simplified Chinese catalog into the Traditional Chinese language pack |
 | Pillow, NumPy | Pillow contributors; NumPy developers | HPND; BSD-3-Clause | `prototype/` |
 | Tesseract OCR | Tesseract contributors | Apache-2.0 | Comparison in `prototype/` |
 | Playwright | Microsoft | Apache-2.0 | Generates the synthetic test images (`prototype/tests/gen.js`) |

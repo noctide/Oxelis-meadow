@@ -3,6 +3,27 @@
   "plugins": [
     {
       "author": "Oxelis",
+      "credits": [
+        {
+          "by": "BYVoid and contributors",
+          "license": "Apache-2.0",
+          "name": "OpenCC",
+          "url": "https://github.com/BYVoid/OpenCC"
+        }
+      ],
+      "description": "Traditional Chinese (Taiwan) interface language for Oxelis. Converted from the Simplified Chinese catalog with OpenCC (Taiwan phrases) and not yet reviewed by a native speaker; corrections are welcome.",
+      "id": "language-zh-tw",
+      "kinds": [],
+      "name": "繁體中文（台灣）",
+      "net": [],
+      "sha256": "4d3fc0038b17b40f2db031a502b080186f716a80e48d6fb8a31d2896ad9c541f",
+      "size": 3752,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/language-zh-tw-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
       "credits": [],
       "description": "Switch and settings for the Model Context Protocol bridge (oxelis-host.exe). While this plugin is installed and enabled, AI assistants such as Claude Desktop may use the tools named in its allowed_tools setting to read and translate on-screen text. Screenshots are disabled unless 'screenshot' is added to allowed_tools.",
       "id": "mcp-server",
@@ -171,5 +192,5 @@
       "version": "0.1.0"
     }
   ],
-  "signature": "0b384a85e166ad8c8b5eeb1fe7e1427ed342791513275ddb82966072035654f59e4d8ad78c0a4a6a8062a02e9a81a622f5ff1349bd51e02d7e676919a6705101"
+  "signature": "2b11030ecf6b9a5894c33b30a56a4ebaea3ff860c9414c45684314ec1d5eb1ca784410a9663d8ce4dd4edcc67ceb0f61185f0c56001e9f1ef211bd909e0d8501"
 }

@@ -1,0 +1,20 @@
+{
+  "id": "language-zh-tw",
+  "name": "繁體中文（台灣）",
+  "version": "0.1.0",
+  "author": "Oxelis",
+  "description": "Traditional Chinese (Taiwan) interface language for Oxelis. Converted from the Simplified Chinese catalog with OpenCC (Taiwan phrases) and not yet reviewed by a native speaker; corrections are welcome.",
+  "language": {
+    "code": "zh-TW",
+    "name": "繁體中文（台灣）",
+    "strings": "zh-TW.lang"
+  },
+  "credits": [
+    {
+      "name": "OpenCC",
+      "by": "BYVoid and contributors",
+      "license": "Apache-2.0",
+      "url": "https://github.com/BYVoid/OpenCC"
+    }
+  ]
+}

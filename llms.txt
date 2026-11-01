@@ -17,3 +17,4 @@ Rules:
 - Credits: a plugin that uses a service, model or program made by others must list it in manifest "credits": [{ name, by, license, url }], with the name spelled as its owner spells it. Models of others are not stored in the repository.
 - Registered but not yet invoked by the application: ocr services and commands.
 - References: sdk/oxelis.d.ts (types), docs/plugin-api.md (API reference), official/*/main.js (examples).
+- Interface languages: manifest `language: { code, name, strings }` plus a catalog file of `key = value` lines (see templates/hello-language); no main.js, no permissions.

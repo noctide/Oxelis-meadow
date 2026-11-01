@@ -25,6 +25,7 @@ my-plugin/
 | `ocr` | a model pack: `{ "engine": "ppocr", "det", "rec", "dict", "runtime" }`, files inside the plugin folder; needs no `main.js` (see `official/paddleocr`) |
 | `secret: true` on a setting | stored sealed with Windows DPAPI, bound to the user's account |
 | `permissions.ml` | `true` lets the plugin load and run `.onnx` models from its own folder (`oxelis.ml`, see `templates/hello-ml`) |
+| `language` | an interface language pack: `{ "code": "ja", "name": "日本語", "strings": "ja.lang" }`; needs no `main.js` and no permissions (see `templates/hello-language`) |
 | `permissions.clipboard` | `true` lets `oxelis.app.copy` put text on the clipboard |
 
 ## main.js
@@ -119,3 +120,7 @@ A plugin that uses a service, runs a model or includes a program made by others 
 ```
 
 Names must be written exactly as their owners write them. If the license cannot be determined, the entry states that instead of assuming one. The plugin manager displays these entries, and `oxelis-sign` declines to list a plugin that declares `net`, `netFromSettings`, `ml` or `ocr` without credits. Models and programs of others are not stored in the plugin repository: a plugin refers to them, and the user obtains them from their owners.
+
+## Interface languages
+
+A language pack is a plugin whose manifest has a `language` entry and whose folder holds a catalog file. Start from `templates/hello-language`: it is the English catalog, with one entry per line (`key = value`). Translate the values only. `\n` is a line break, `\s` a space, and `{0}`, `{1}` are filled in by the program and must be kept. The language is chosen from the Windows language (or `OXELIS_LANG`); a key the pack lacks is shown in English.

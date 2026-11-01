@@ -1,0 +1,8 @@
+{
+  "id": "language-xx",
+  "name": "Language name in that language",
+  "version": "0.1.0",
+  "author": "you",
+  "description": "Interface language pack. Replace xx with a language code such as ja or pt-BR, translate every value in the .lang file and keep the {0} {1} placeholders.",
+  "language": { "code": "xx", "name": "Language name in that language", "strings": "xx.lang" }
+}
