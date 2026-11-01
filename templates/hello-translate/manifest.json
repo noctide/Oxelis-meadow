@@ -1,0 +1,9 @@
+{
+  "id": "hello-translate",
+  "name": "Hello translator",
+  "version": "0.1.0",
+  "minAppVersion": "0.0.1",
+  "author": "you",
+  "description": "A translator that does nothing useful: it puts the target language in front of every text. Copy it and replace translate().",
+  "main": "main.js"
+}

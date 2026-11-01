@@ -1,0 +1,9 @@
+{
+  "id": "translate-mymemory",
+  "name": "MyMemory",
+  "version": "0.1.0",
+  "minAppVersion": "0.0.1",
+  "author": "Oxelis",
+  "description": "Free translation memory with a documented public API. No key; about 5000 characters a day per address. Quality is below the big engines.",
+  "permissions": { "net": ["api.mymemory.translated.net"] }
+}

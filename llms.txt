@@ -1,0 +1,14 @@
+# Oxelis plugins (for AI assistants that write plugins)
+
+Oxelis is a screen translator/OCR tool. Plugins are JavaScript run in QuickJS, one sandbox per plugin.
+A plugin = folder with manifest.json + main.js. Copy templates/hello-translate and edit.
+
+Rules that matter:
+- main.js is CommonJS: `module.exports = class X { onload(oxelis) { ... } }`. The only global is `oxelis`.
+- No require, no fs, no setTimeout, no fetch, no TextEncoder. Use oxelis.http.fetch (blocking) or oxelis.http.fetchAll (parallel, up to 4).
+- https only, and only hosts listed in manifest permissions.net (exact name or "*.suffix"), or the host of a setting named in permissions.netFromSettings.
+- Translators: oxelis.services.translate.register({ id, name, translate(texts, from, to) }). Return an array of strings, same length as texts. May be async.
+- Settings: declare in manifest "settings" ([{key,label,secret,default}]), read with oxelis.settings.get(key). Never hard-code secrets.
+- Limits: 48 MB memory, 60 s per call.
+- Wired today: log, http, settings, translate. Registered but not used yet: ocr, commands, events. Planned: buttons, panels, layouts, themes.
+- Types: sdk/oxelis.d.ts. API description: docs/plugin-api.md. Examples: official/*/main.js.
