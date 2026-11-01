@@ -5,9 +5,30 @@
   "minAppVersion": "0.0.1",
   "author": "Oxelis",
   "description": "DeepL API (free or pro key). Put the key in the plugin's settings.",
-  "permissions": { "net": ["api-free.deepl.com", "api.deepl.com"] },
+  "permissions": {
+    "net": [
+      "api-free.deepl.com",
+      "api.deepl.com"
+    ]
+  },
   "settings": [
-    { "key": "api_key", "label": "DeepL API key", "secret": true },
-    { "key": "plan", "label": "free or pro", "default": "free" }
+    {
+      "key": "api_key",
+      "label": "DeepL API key",
+      "secret": true
+    },
+    {
+      "key": "plan",
+      "label": "free or pro",
+      "default": "free"
+    }
+  ],
+  "credits": [
+    {
+      "name": "DeepL API",
+      "by": "DeepL SE",
+      "license": "a web service, subject to DeepL's terms",
+      "url": "https://www.deepl.com/pro-api"
+    }
   ]
 }

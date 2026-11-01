@@ -22,7 +22,7 @@ my-plugin/
 | `settings` | `[{ "key", "label", "secret", "default" }]` |
 | `provides` | what the plugin adds to the editor: `buttons`, `panels`, `theme`, `layout`, `events`. **A plugin that adds to the editor must list something here**, otherwise it is only started for translation. Shown in the plugin manager. |
 | `permissions.net` also accepts `localhost` / `127.0.0.1` | `http://` is allowed to this machine only (Ollama, LibreTranslate); every other address must be `https://` |
-| `ocr` | a model pack: `{ "engine": "ppocr", "det", "rec", "dict", "runtime" }`, files inside the plugin folder; needs no `main.js` (see `official/ocr-ppocr`) |
+| `ocr` | a model pack: `{ "engine": "ppocr", "det", "rec", "dict", "runtime" }`, files inside the plugin folder; needs no `main.js` (see `official/paddleocr`) |
 | `secret: true` on a setting | stored sealed with Windows DPAPI, bound to the user's account |
 | `permissions.ml` | `true` lets the plugin load and run `.onnx` models from its own folder (`oxelis.ml`, see `templates/hello-ml`) |
 | `permissions.clipboard` | `true` lets `oxelis.app.copy` put text on the clipboard |
@@ -107,3 +107,15 @@ out.last_hidden_state.shape; out.last_hidden_state.data;       // flat numbers
 ```
 
 The host runs the model (ONNX Runtime, CPU). Tensors travel as JSON, so keep outputs small (a few tens of thousands of numbers per call). Use this to ship your own translation or OCR engine as a plugin; tokenizers and search loops are plain JavaScript.
+
+## Credits (required when you use others' work)
+
+If your plugin talks to a service, runs a model, or ships a program that somebody else made, say so in the manifest, with their own name for it:
+
+```json
+"credits": [
+  { "name": "MTranServer", "by": "xxnuo", "license": "Apache-2.0", "url": "https://github.com/xxnuo/MTranServer" }
+]
+```
+
+Write names exactly as the owners write them. If you could not find the license, say that, do not guess. The plugin manager shows these lines, and `oxelis-sign` refuses to list a plugin that has `net`, `netFromSettings`, `ml` or `ocr` but no credits. Do not put other people's models in the Oxelis repository: a plugin points to them, and the user gets them from their owners.

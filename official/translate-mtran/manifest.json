@@ -5,10 +5,40 @@
   "minAppVersion": "0.0.1",
   "author": "Oxelis",
   "description": "Offline translation with MTranServer (https://github.com/xxnuo/MTranServer, Bergamot/Firefox Translations models) running on this machine, default http://localhost:8989. Nothing leaves your machine. The address you enter is the only host this plugin can reach.",
-  "permissions": { "netFromSettings": ["base_url"] },
+  "permissions": {
+    "netFromSettings": [
+      "base_url"
+    ]
+  },
   "settings": [
-    { "key": "base_url", "label": "Server address", "default": "http://localhost:8989" },
-    { "key": "source_lang", "label": "Source language (auto, or e.g. en)", "default": "auto" },
-    { "key": "api_token", "label": "API token (only if you set MT_API_TOKEN)", "secret": true }
+    {
+      "key": "base_url",
+      "label": "Server address",
+      "default": "http://localhost:8989"
+    },
+    {
+      "key": "source_lang",
+      "label": "Source language (auto, or e.g. en)",
+      "default": "auto"
+    },
+    {
+      "key": "api_token",
+      "label": "API token (only if you set MT_API_TOKEN)",
+      "secret": true
+    }
+  ],
+  "credits": [
+    {
+      "name": "MTranServer",
+      "by": "xxnuo",
+      "license": "Apache-2.0",
+      "url": "https://github.com/xxnuo/MTranServer"
+    },
+    {
+      "name": "Firefox Translations models (Bergamot)",
+      "by": "Mozilla",
+      "license": "see the model repository",
+      "url": "https://github.com/mozilla/firefox-translations-models"
+    }
   ]
 }

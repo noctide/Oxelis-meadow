@@ -3,6 +3,7 @@
   "plugins": [
     {
       "author": "Oxelis",
+      "credits": [],
       "description": "Lets AI assistants (Claude Desktop, Cursor...) read text on your screen and translate it through oxelis-host.exe. Off unless this plugin is installed and enabled. Pictures of the screen need 'screenshot' in allowed tools.",
       "id": "mcp-server",
       "kinds": [
@@ -18,6 +19,7 @@
     },
     {
       "author": "Oxelis",
+      "credits": [],
       "description": "A panel next to the selection: its size, and how many lines, words and characters were recognised.",
       "id": "selection-stats",
       "kinds": [
@@ -33,6 +35,7 @@
     },
     {
       "author": "Oxelis",
+      "credits": [],
       "description": "Two buttons for recognised text: copy it as one paragraph, copy it without blank lines. Also trims trailing spaces of every recognised line.",
       "id": "text-tools",
       "kinds": [
@@ -49,6 +52,7 @@
     },
     {
       "author": "Oxelis",
+      "credits": [],
       "description": "Amber frame and a dark warm toolbar; the toolbar prefers to sit above the selection.",
       "id": "theme-amber",
       "kinds": [
@@ -65,6 +69,14 @@
     },
     {
       "author": "Oxelis",
+      "credits": [
+        {
+          "by": "DeepL SE",
+          "license": "a web service, subject to DeepL's terms",
+          "name": "DeepL API",
+          "url": "https://www.deepl.com/pro-api"
+        }
+      ],
       "description": "DeepL API (free or pro key). Put the key in the plugin's settings.",
       "id": "translate-deepl",
       "kinds": [
@@ -75,14 +87,22 @@
         "api-free.deepl.com",
         "api.deepl.com"
       ],
-      "sha256": "72370958b224db8853ba1e9ec7e5b2173ffcd1341ce26fa4fac53cb049f65560",
-      "size": 1297,
+      "sha256": "d7e4945e74be39f1859fe8bd6fb264b92d0207b2377c4bc9486f4698398c040d",
+      "size": 1384,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-deepl-0.1.0.zip",
       "version": "0.1.0"
     },
     {
       "author": "Oxelis",
+      "credits": [
+        {
+          "by": "Google",
+          "license": "a web service, subject to Google's terms",
+          "name": "Google Translate",
+          "url": "https://translate.google.com/"
+        }
+      ],
       "description": "Translation through Google's public web endpoint. No key. Unofficial: it can change or throttle without notice.",
       "id": "translate-google",
       "kinds": [
@@ -92,14 +112,57 @@
       "net": [
         "translate.googleapis.com"
       ],
-      "sha256": "aa326cda32f0da1af5ada2f65f4b5b7bb989b55bcc25a63a6595a45ea5129bd2",
-      "size": 1448,
+      "sha256": "7e5cbdda97dfe81afc6de44de9feb2ba62d85dfc3a8cfa9ccfa0e74bcb16d7a1",
+      "size": 1524,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-google-0.1.0.zip",
       "version": "0.1.0"
     },
     {
       "author": "Oxelis",
+      "credits": [
+        {
+          "by": "Tencent Hunyuan",
+          "license": "not stated in the README; read the license on the model page before use",
+          "name": "Hy-MT2",
+          "url": "https://github.com/Tencent-Hunyuan/Hy-MT2"
+        },
+        {
+          "by": "Mao Zheng et al., 2026 (arXiv:2605.22064)",
+          "license": "cite when you use the model",
+          "name": "Hy-MT2: A Family of Fast, Efficient and Powerful Multilingual Translation Models in the Wild",
+          "url": "https://arxiv.org/abs/2605.22064"
+        }
+      ],
+      "description": "Translation with Tencent Hunyuan's Hy-MT2 model, served on this machine by llama.cpp (llama-server), vLLM or Ollama. Oxelis does not ship or install the model: you download it from its owner and run the server yourself. The address you enter is the only host this plugin can reach.",
+      "id": "translate-hymt2",
+      "kinds": [
+        "translate"
+      ],
+      "name": "Hy-MT2 (local model server)",
+      "net": [],
+      "sha256": "05894a89e7b9c463ee37f1f33668318bfb7439775c8b088a3d8b11db78a0baf0",
+      "size": 2255,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-hymt2-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
+      "credits": [
+        {
+          "by": "LibreTranslate contributors",
+          "license": "AGPL-3.0",
+          "name": "LibreTranslate",
+          "url": "https://github.com/LibreTranslate/LibreTranslate"
+        },
+        {
+          "by": "Argos Open Technologies",
+          "license": "MIT",
+          "name": "Argos Translate (its translation engine)",
+          "url": "https://github.com/argosopentech/argos-translate"
+        }
+      ],
       "description": "Translation with a LibreTranslate server (Argos models) that you run yourself, for example `libretranslate` or the Docker image on http://localhost:5000. Nothing leaves your machine. The address you enter is the only host this plugin can reach.",
       "id": "translate-libre",
       "kinds": [
@@ -107,14 +170,28 @@
       ],
       "name": "LibreTranslate (offline, on this machine)",
       "net": [],
-      "sha256": "82bd3b8230326561167b65c8a41687c64288f9277f9403126fd143201bc738f1",
-      "size": 1354,
+      "sha256": "f7f0a47b905a6218a539114170886b8b5c9793abc1684f6d0f27c5250ead10a5",
+      "size": 1487,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-libre-0.1.0.zip",
       "version": "0.1.0"
     },
     {
       "author": "Oxelis",
+      "credits": [
+        {
+          "by": "xxnuo",
+          "license": "Apache-2.0",
+          "name": "MTranServer",
+          "url": "https://github.com/xxnuo/MTranServer"
+        },
+        {
+          "by": "Mozilla",
+          "license": "see the model repository",
+          "name": "Firefox Translations models (Bergamot)",
+          "url": "https://github.com/mozilla/firefox-translations-models"
+        }
+      ],
       "description": "Offline translation with MTranServer (https://github.com/xxnuo/MTranServer, Bergamot/Firefox Translations models) running on this machine, default http://localhost:8989. Nothing leaves your machine. The address you enter is the only host this plugin can reach.",
       "id": "translate-mtran",
       "kinds": [
@@ -122,14 +199,22 @@
       ],
       "name": "MTranServer (offline, on this machine)",
       "net": [],
-      "sha256": "1fed00d88e57757f866f7817da37255c83dd2cf2f0a8f3addea2358d157c6d25",
-      "size": 1689,
+      "sha256": "aba776a6a12d66e9258d55808546247d7569cb90eb1a10f92b2358c0345854d3",
+      "size": 1796,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-mtran-0.1.0.zip",
       "version": "0.1.0"
     },
     {
       "author": "Oxelis",
+      "credits": [
+        {
+          "by": "Translated",
+          "license": "a web service, subject to MyMemory's terms",
+          "name": "MyMemory",
+          "url": "https://mymemory.translated.net/"
+        }
+      ],
       "description": "Free translation memory with a documented public API. No key; about 5000 characters a day per address. Quality is below the big engines.",
       "id": "translate-mymemory",
       "kinds": [
@@ -139,14 +224,22 @@
       "net": [
         "api.mymemory.translated.net"
       ],
-      "sha256": "8a0e116259d5da96588304e2d3f47a57eef637bd513b3e8398adc1e76e654df0",
-      "size": 1351,
+      "sha256": "e7a0b5563b14cf35cba5d55518e82f8a5c543d84e86f05fa23b351a1bcac84bb",
+      "size": 1432,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-mymemory-0.1.0.zip",
       "version": "0.1.0"
     },
     {
       "author": "Oxelis",
+      "credits": [
+        {
+          "by": "OpenAI",
+          "license": "the API format is used by many servers; the server you enter has its own terms",
+          "name": "OpenAI API (chat completions format)",
+          "url": "https://platform.openai.com/docs/api-reference/chat"
+        }
+      ],
       "description": "Translation with any large language model behind an OpenAI-compatible chat API: OpenAI, DeepSeek, a model on this machine (Ollama: http://localhost:11434/v1, no key needed, works offline). The address you enter is the only host this plugin can reach.",
       "id": "translate-openai",
       "kinds": [
@@ -154,12 +247,12 @@
       ],
       "name": "LLM (OpenAI-compatible)",
       "net": [],
-      "sha256": "76716ed0f74361b871200030bb9b26a91e93b4a772c1b14ad114677b2d3e139c",
-      "size": 1836,
+      "sha256": "08ce885e1f8d83470d38e9a7f2738995078c57b5f5331fce16b0e1939204eb83",
+      "size": 1963,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-openai-0.1.0.zip",
       "version": "0.1.0"
     }
   ],
-  "signature": "f2e847ca5113106151ccf256dedaea5dcfe31d64b563789b7129a98f96a6fa753309031449ab4e043fc0dc7df75cc24ef67f2f0b7891d5531e693b5d32e0e10c"
+  "signature": "84e834dee1516a8731fe0397d120b2647f99e27c96eae289d275b41748f23dbf7222cfb0fce9afdb7fcf1240f6502e9f1bfa41cefcb9e36244025f5945a67805"
 }

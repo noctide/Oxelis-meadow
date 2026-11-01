@@ -5,5 +5,17 @@
   "minAppVersion": "0.0.1",
   "author": "Oxelis",
   "description": "Free translation memory with a documented public API. No key; about 5000 characters a day per address. Quality is below the big engines.",
-  "permissions": { "net": ["api.mymemory.translated.net"] }
+  "permissions": {
+    "net": [
+      "api.mymemory.translated.net"
+    ]
+  },
+  "credits": [
+    {
+      "name": "MyMemory",
+      "by": "Translated",
+      "license": "a web service, subject to MyMemory's terms",
+      "url": "https://mymemory.translated.net/"
+    }
+  ]
 }
