@@ -20,13 +20,10 @@ The folder determines the trust level; a plugin cannot declare itself official.
 | id | Purpose | Requirements |
 |---|---|---|
 | [`paddleocr`](official/paddleocr) | Model pack for accurate text recognition (PaddleOCR) | model files, obtained with `tools/fetch-ocr-assets.py` |
-| [`translate-google`](official/translate-google) | Google Translate public web endpoint (unofficial) | none |
 | [`translate-mymemory`](official/translate-mymemory) | MyMemory public API | none |
 | [`translate-deepl`](official/translate-deepl) | DeepL API | API key |
 | [`translate-openai`](official/translate-openai) | Any OpenAI-compatible chat API, including local servers | API address, optionally a key |
-| [`translate-libre`](official/translate-libre) | LibreTranslate server operated by the user | a running server |
 | [`translate-mtran`](official/translate-mtran) | MTranServer, offline | a running server |
-| [`translate-hymt2`](official/translate-hymt2) | Hy-MT2 served by llama.cpp, vLLM or Ollama | a running server and the model |
 | [`mcp-server`](official/mcp-server) | Switch and settings for the MCP bridge | none |
 | [`text-tools`](official/text-tools) | Buttons for recognized text | none |
 | [`selection-stats`](official/selection-stats) | Statistics panel | none |
@@ -66,3 +63,7 @@ cargo run --release -p oxelis-plugins --features tool --bin oxelis-sign -- index
 ```
 
 The application accepts only a catalog signed with the key it contains, and installs only archives whose SHA-256 matches the signed entry.
+
+## Inclusion policy
+
+Plugins and third-party works with unclear license terms, or with restrictions that cannot be met for worldwide distribution (limits by region, audience size or brand use), are not included. Unofficial interfaces of web services are not included either. Each addition is checked against the owner's license text first.

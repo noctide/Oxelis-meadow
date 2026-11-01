@@ -97,89 +97,6 @@
       "author": "Oxelis",
       "credits": [
         {
-          "by": "Google",
-          "license": "Web service, subject to the provider's terms of use",
-          "name": "Google Translate",
-          "url": "https://translate.google.com/"
-        }
-      ],
-      "description": "Translation through the public web endpoint of Google Translate, without a key. This endpoint is unofficial and may change or be rate-limited without notice.",
-      "id": "translate-google",
-      "kinds": [
-        "translate"
-      ],
-      "name": "Google Translate (web endpoint)",
-      "net": [
-        "translate.googleapis.com"
-      ],
-      "sha256": "b1e06c3758d736a7368b36b0c75d66cdb4be7d46657b314573ac9950deab0937",
-      "size": 1550,
-      "tier": "official",
-      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-google-0.1.0.zip",
-      "version": "0.1.0"
-    },
-    {
-      "author": "Oxelis",
-      "credits": [
-        {
-          "by": "Tencent Hunyuan",
-          "license": "No license is stated in the project README; consult the model page before use",
-          "name": "Hy-MT2",
-          "url": "https://github.com/Tencent-Hunyuan/Hy-MT2"
-        },
-        {
-          "by": "Mao Zheng et al., 2026 (arXiv:2605.22064)",
-          "license": "Citation requested by the authors",
-          "name": "Hy-MT2: A Family of Fast, Efficient and Powerful Multilingual Translation Models in the Wild",
-          "url": "https://arxiv.org/abs/2605.22064"
-        }
-      ],
-      "description": "Translation with Tencent Hunyuan's Hy-MT2 model, served locally by llama.cpp (llama-server), vLLM or Ollama through an OpenAI-compatible API. Oxelis neither includes nor installs the model; the user obtains it from its owner and runs the server. The plugin can reach only the address entered in its settings.",
-      "id": "translate-hymt2",
-      "kinds": [
-        "translate"
-      ],
-      "name": "Hy-MT2 (local server)",
-      "net": [],
-      "sha256": "ed3a9223fc9004a8afa4ce0f05c4b4a7024975a2c269f39a843796bbc9ec6548",
-      "size": 2343,
-      "tier": "official",
-      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-hymt2-0.1.0.zip",
-      "version": "0.1.0"
-    },
-    {
-      "author": "Oxelis",
-      "credits": [
-        {
-          "by": "LibreTranslate contributors",
-          "license": "AGPL-3.0",
-          "name": "LibreTranslate",
-          "url": "https://github.com/LibreTranslate/LibreTranslate"
-        },
-        {
-          "by": "Argos Open Technologies",
-          "license": "MIT",
-          "name": "Argos Translate",
-          "url": "https://github.com/argosopentech/argos-translate"
-        }
-      ],
-      "description": "Translation through a LibreTranslate server operated by the user, for example the libretranslate command or its Docker image at http://localhost:5000. All processing stays on the local machine. The plugin can reach only the address entered in its settings.",
-      "id": "translate-libre",
-      "kinds": [
-        "translate"
-      ],
-      "name": "LibreTranslate (local server)",
-      "net": [],
-      "sha256": "cbbacf4f593b9736ea3a67faf403c46ceeb68315ad398aac9c6c8147975f9291",
-      "size": 1470,
-      "tier": "official",
-      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-libre-0.1.0.zip",
-      "version": "0.1.0"
-    },
-    {
-      "author": "Oxelis",
-      "credits": [
-        {
           "by": "xxnuo",
           "license": "Apache-2.0",
           "name": "MTranServer",
@@ -254,5 +171,5 @@
       "version": "0.1.0"
     }
   ],
-  "signature": "143870b6296007a9ba8de96626eba0a8f1148160b21ba557df2e304c2cba15bd2894b3d6157d10907cbcedc75fbba64fc9ce260da94bdfd8c577e46e50773e05"
+  "signature": "0b384a85e166ad8c8b5eeb1fe7e1427ed342791513275ddb82966072035654f59e4d8ad78c0a4a6a8062a02e9a81a622f5ff1349bd51e02d7e676919a6705101"
 }

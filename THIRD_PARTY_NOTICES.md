@@ -13,15 +13,10 @@ is renamed or presented as part of Oxelis.
 | ONNX Runtime | Microsoft | MIT | https://github.com/microsoft/onnxruntime |
 | MTranServer | xxnuo | Apache-2.0 | https://github.com/xxnuo/MTranServer |
 | Firefox Translations models (Bergamot) | Mozilla | Refer to the model repository | https://github.com/mozilla/firefox-translations-models |
-| LibreTranslate (used only through its network API; none of its code is included) | LibreTranslate contributors | AGPL-3.0 | https://github.com/LibreTranslate/LibreTranslate |
-| Argos Translate | Argos Open Technologies | MIT | https://github.com/argosopentech/argos-translate |
-| Hy-MT2 | Tencent Hunyuan | No license is stated in the project README; consult the model page before use | https://github.com/Tencent-Hunyuan/Hy-MT2 |
-| Google Translate, DeepL API, MyMemory, OpenAI API format | Google, DeepL SE, Translated, OpenAI | Web services, each under its own terms of use | see the plugins |
+| DeepL API, MyMemory, OpenAI API format | DeepL SE, Translated, OpenAI | Web services, each under its own terms of use | see the plugins |
 
 The models and programs above are not part of Oxelis. They are installed by the user, through
-plugins, from their owners. Publications that use Hy-MT2 are asked by its authors to cite: *Hy-MT2: A Family of Fast,
-Efficient and Powerful Multilingual Translation Models in the Wild* (Mao Zheng et al., 2026,
-arXiv:2605.22064, https://arxiv.org/abs/2605.22064).
+plugins, from their owners.
 
 ## Methods implemented in Oxelis code (written here, following published work)
 
@@ -32,7 +27,6 @@ No source code of the works below is included; Oxelis contains its own implement
 | Differentiable Binarization text detection and its post-processing (threshold, dilation, score filter, unclip) | Liao et al., "Real-time Scene Text Detection with Differentiable Binarization", AAAI 2020; the post-processing parameters follow the implementation in PaddleOCR (Apache-2.0) | `crates/oxelis-ppocr/src/det.rs` |
 | CRNN recognition with greedy CTC decoding | Shi et al., "An End-to-End Trainable Neural Network for Image-based Sequence Recognition", 2015; Graves et al., "Connectionist Temporal Classification", ICML 2006; character table layout as distributed by PaddleOCR | `crates/oxelis-ppocr/src/rec.rs` |
 | Bilinear sampling grid and 2x2 dilation, reproduced so that results match the reference pipeline | OpenCV (`INTER_LINEAR`, `dilate`); OpenCV code is not included | `crates/oxelis-ppocr/src/image.rs`, `det.rs` |
-| Translation instruction template, recommended sampling parameters and the language-name table used by `translate-hymt2` | Hy-MT2 README, Tencent Hunyuan | `plugins/official/translate-hymt2/main.js` |
 
 ## Specifications and formats implemented
 
@@ -60,7 +54,7 @@ Fonts are used by name from the user's system and are not distributed with Oxeli
 | Tesseract OCR | Tesseract contributors | Apache-2.0 | Comparison in `prototype/` |
 | Playwright | Microsoft | Apache-2.0 | Generates the synthetic test images (`prototype/tests/gen.js`) |
 | Windows OCR | Microsoft | part of Windows | Comparison data in `prototype/winocr_out/` |
-| Test screenshots (`prototype/tests/real_*.png`, `user*.png`, `tools/winocr-test/images/`) | Supplied by the project owner; they show the interfaces of Visual Studio Code (Microsoft) and Google Chrome (Google) and source code and text of the owner's own projects | the owner's and the respective products' own terms | Recognition accuracy tests only |
+| Recognition fixtures (`prototype/ppocr_out`, `prototype/winocr_out`) | Produced by the project from synthetic and neutral text; no third-party screenshots are included | Project | Layout regression tests |
 
 ## Compiled into Oxelis
 
