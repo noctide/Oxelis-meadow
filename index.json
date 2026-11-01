@@ -115,6 +115,21 @@
     },
     {
       "author": "Oxelis",
+      "description": "Offline translation with MTranServer (https://github.com/xxnuo/MTranServer, Bergamot/Firefox Translations models) running on this machine, default http://localhost:8989. Nothing leaves your machine. The address you enter is the only host this plugin can reach.",
+      "id": "translate-mtran",
+      "kinds": [
+        "translate"
+      ],
+      "name": "MTranServer (offline, on this machine)",
+      "net": [],
+      "sha256": "1fed00d88e57757f866f7817da37255c83dd2cf2f0a8f3addea2358d157c6d25",
+      "size": 1689,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-mtran-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
       "description": "Free translation memory with a documented public API. No key; about 5000 characters a day per address. Quality is below the big engines.",
       "id": "translate-mymemory",
       "kinds": [
@@ -146,5 +161,5 @@
       "version": "0.1.0"
     }
   ],
-  "signature": "17fd4f47ee50f896d7fed6ffee2aeee9df23743c289a9b1ee17b8776d532d08b6c0397a2ba1178e09cc0fe4f8ee4515fac49a24baaf0c111212e69c8ecc46308"
+  "signature": "f2e847ca5113106151ccf256dedaea5dcfe31d64b563789b7129a98f96a6fa753309031449ab4e043fc0dc7df75cc24ef67f2f0b7891d5531e693b5d32e0e10c"
 }
