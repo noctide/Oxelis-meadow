@@ -21,6 +21,9 @@ my-plugin/
 | `permissions.netFromSettings` | names of settings whose value is an https address the plugin may contact (for "any OpenAI-compatible server") |
 | `settings` | `[{ "key", "label", "secret", "default" }]` |
 | `provides` | what the plugin adds to the editor: `buttons`, `panels`, `theme`, `layout`, `events`. **A plugin that adds to the editor must list something here**, otherwise it is only started for translation. Shown in the plugin manager. |
+| `permissions.net` also accepts `localhost` / `127.0.0.1` | `http://` is allowed to this machine only (Ollama, LibreTranslate); every other address must be `https://` |
+| `ocr` | a model pack: `{ "engine": "ppocr", "det", "rec", "dict", "runtime" }`, files inside the plugin folder; needs no `main.js` (see `official/ocr-ppocr`) |
+| `secret: true` on a setting | stored sealed with Windows DPAPI, bound to the user's account |
 | `permissions.clipboard` | `true` lets `oxelis.app.copy` put text on the clipboard |
 
 ## main.js

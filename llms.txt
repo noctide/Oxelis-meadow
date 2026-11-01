@@ -15,3 +15,6 @@ Rules that matter:
 - The 'ocr' handler receives {lines, source} and may return a new array of lines (post-processing before display).
 - Registered but not used yet: ocr services, commands.
 - Types: sdk/oxelis.d.ts. API description: docs/plugin-api.md. Examples: official/*/main.js.
+
+- Plain http:// is allowed only to localhost / 127.0.0.1 (list `localhost` in permissions.net, or take the address from a netFromSettings setting). Everything else must be https.
+- OCR model packs: manifest `ocr: {engine:'ppocr', det, rec, dict, runtime}`; no main.js needed. Settings with secret:true are stored DPAPI-sealed.

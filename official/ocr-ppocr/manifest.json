@@ -1,0 +1,14 @@
+{
+  "id": "ocr-ppocr",
+  "name": "PP-OCR (accurate recognition)",
+  "version": "0.1.0",
+  "author": "Oxelis",
+  "description": "Model pack for the accurate OCR engine: PP-OCRv5 detector + PP-OCRv6 small recognizer (Apache-2.0) and ONNX Runtime (MIT). Without it the app uses Windows OCR. Models are not in the repository: run tools/fetch-ocr-assets.py or install from the plugin manager.",
+  "ocr": {
+    "engine": "ppocr",
+    "det": "det.onnx",
+    "rec": "rec.onnx",
+    "dict": "dict.txt",
+    "runtime": "onnxruntime.dll"
+  }
+}

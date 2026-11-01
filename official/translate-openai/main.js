@@ -23,7 +23,7 @@ module.exports = class OpenAiCompatible {
       translate(texts, from, to) {
         const base = String(oxelis.settings.get('base_url') || '').replace(/\/+$/, '');
         const key = oxelis.settings.get('api_key');
-        if (!base.startsWith('https://')) throw new Error('LLM: set an https:// API address in the plugin settings');
+        if (!/^(https:\/\/|http:\/\/(localhost|127\.0\.0\.1)[:\/])/i.test(base + '/')) throw new Error('LLM: set an https:// API address (or http://localhost:... for a model on this machine) in the plugin settings');
         const headers = { 'Content-Type': 'application/json' };
         if (key) headers.Authorization = 'Bearer ' + key;
         const r = oxelis.http.fetch(base + '/chat/completions', {

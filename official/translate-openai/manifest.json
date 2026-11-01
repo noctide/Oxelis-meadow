@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "minAppVersion": "0.0.1",
   "author": "Oxelis",
-  "description": "Translation with any large language model behind an OpenAI-compatible chat API: OpenAI, DeepSeek, a local server. The address you enter is the only host this plugin can reach.",
+  "description": "Translation with any large language model behind an OpenAI-compatible chat API: OpenAI, DeepSeek, a model on this machine (Ollama: http://localhost:11434/v1, no key needed, works offline). The address you enter is the only host this plugin can reach.",
   "permissions": { "netFromSettings": ["base_url"] },
   "settings": [
-    { "key": "base_url", "label": "API address (https://...)", "default": "https://api.deepseek.com" },
+    { "key": "base_url", "label": "API address (https://... or http://localhost:11434/v1)", "default": "https://api.deepseek.com" },
     { "key": "api_key", "label": "API key", "secret": true },
     { "key": "model", "label": "Model", "default": "deepseek-chat" }
   ]
