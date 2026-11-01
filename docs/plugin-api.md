@@ -92,3 +92,7 @@ module.exports = {
 ## Testing a plugin without the app
 
 The plugin host is the crate `oxelis-plugins` in the Oxelis repository; its tests run plugins against a pretend network. A plugin that parses in Node (`new Function('module', 'exports', 'oxelis', source)`) usually runs in the app, but QuickJS has no `TextEncoder`, `setTimeout` or `fetch`.
+
+## MCP
+
+`official/mcp-server` is the switch for the MCP bridge (`oxelis-host.exe`). It has no logic: while it is installed and enabled, AI assistants may use the tools listed in its `allowed_tools` setting (`read_screen_text`, `translate_text`, `screenshot`; the last is off by default). `provides: ["mcp"]` marks such plugins.

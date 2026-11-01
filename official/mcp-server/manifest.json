@@ -1,0 +1,12 @@
+{
+  "id": "mcp-server",
+  "name": "MCP server (AI assistants)",
+  "version": "0.1.0",
+  "author": "Oxelis",
+  "description": "Lets AI assistants (Claude Desktop, Cursor...) read text on your screen and translate it through oxelis-host.exe. Off unless this plugin is installed and enabled. Pictures of the screen need 'screenshot' in allowed tools.",
+  "main": "main.js",
+  "provides": ["mcp"],
+  "settings": [
+    { "key": "allowed_tools", "label": "Allowed tools (read_screen_text, translate_text, screenshot)", "default": "read_screen_text,translate_text" }
+  ]
+}

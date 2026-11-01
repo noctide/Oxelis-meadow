@@ -3,6 +3,21 @@
   "plugins": [
     {
       "author": "Oxelis",
+      "description": "Lets AI assistants (Claude Desktop, Cursor...) read text on your screen and translate it through oxelis-host.exe. Off unless this plugin is installed and enabled. Pictures of the screen need 'screenshot' in allowed tools.",
+      "id": "mcp-server",
+      "kinds": [
+        "mcp"
+      ],
+      "name": "MCP server (AI assistants)",
+      "net": [],
+      "sha256": "b7eeec10bd4f6f0e7fdc4e1f3492d6e37da43a924c595978a9b9a925cad2c6e6",
+      "size": 725,
+      "tier": "official",
+      "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/mcp-server-0.1.0.zip",
+      "version": "0.1.0"
+    },
+    {
+      "author": "Oxelis",
       "description": "A panel next to the selection: its size, and how many lines, words and characters were recognised.",
       "id": "selection-stats",
       "kinds": [
@@ -131,5 +146,5 @@
       "version": "0.1.0"
     }
   ],
-  "signature": "beef6ff806ec8efef50bdda5ead4b86135ff51ceb93cc951b281b15c9bd92e352d50472f083f5d43d6a8c1616f9d4a8268ba132a75e37f18a0ca839002554107"
+  "signature": "17fd4f47ee50f896d7fed6ffee2aeee9df23743c289a9b1ee17b8776d532d08b6c0397a2ba1178e09cc0fe4f8ee4515fac49a24baaf0c111212e69c8ecc46308"
 }
