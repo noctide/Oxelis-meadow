@@ -1,0 +1,9 @@
+{
+  "id": "theme-amber",
+  "name": "Amber theme",
+  "version": "0.1.0",
+  "author": "Oxelis",
+  "description": "Amber frame and a dark warm toolbar; the toolbar prefers to sit above the selection.",
+  "main": "main.js",
+  "provides": ["theme", "layout"]
+}

@@ -20,6 +20,8 @@ my-plugin/
 | `permissions.net` | host names the plugin may contact over https: `api.deepl.com`, `*.example.com` (subdomains only) |
 | `permissions.netFromSettings` | names of settings whose value is an https address the plugin may contact (for "any OpenAI-compatible server") |
 | `settings` | `[{ "key", "label", "secret", "default" }]` |
+| `provides` | what the plugin adds to the editor: `buttons`, `panels`, `theme`, `layout`, `events`. **A plugin that adds to the editor must list something here**, otherwise it is only started for translation. Shown in the plugin manager. |
+| `permissions.clipboard` | `true` lets `oxelis.app.copy` put text on the clipboard |
 
 ## main.js
 
@@ -46,8 +48,35 @@ module.exports = class Hello {
 | `oxelis.services.translate.register` | wired |
 | `oxelis.services.ocr.register` | registered, not called yet |
 | `oxelis.commands.add` | registered, not shown anywhere yet |
-| `oxelis.on(event, fn)` | registered, no events are sent yet |
-| buttons, panels, layouts, themes | planned |
+| `oxelis.ui.addButton`, `addPanel`, `hide` | wired (editor) |
+| `oxelis.theme.set`, `oxelis.layout.set` | wired (editor) |
+| `oxelis.app.notify/copy/run/text/translation/selection/lines` | wired (editor) |
+| `oxelis.on('selection' \| 'ocr' \| 'translated', fn)` | wired (editor) |
+
+## The editor
+
+The editor is the toolbar and the panels around the selection. Plugins that declare `provides` are started when a selection becomes editable (a few milliseconds each) and live until the editor closes. They run on the editor's thread, so keep calls short.
+
+```js
+module.exports = {
+  onload(oxelis) {
+    oxelis.ui.addButton({
+      id: 'upper', group: 'recognize', icon: 'Aa', tip: 'Copy as UPPERCASE',
+      run(sel) { oxelis.app.copy((oxelis.app.text() || '').toUpperCase()); oxelis.app.notify('copied'); },
+    });
+    oxelis.on('ocr', e => e.lines.map(l => l.replace(/\s+$/, '')));   // fix text before it is shown
+    oxelis.theme.set({ accent: '#ffb300' });
+  },
+};
+```
+
+- **Buttons** join the end of their group (`draw`, `history`, `local`, `recognize`, `output`). `run` gets the selection `{x, y, w, h}`.
+- **Panels** are text boxes; the user switches them on with their toolbar button. `render` returns an array of lines.
+- **`oxelis.ui.hide([...])`** removes built-in buttons; `cancel` and `translate` cannot be hidden.
+- **Events**: a handler of `ocr` receives `{ lines, source }` and may return a new array of lines. Handlers run in plugin order; each sees the previous result.
+- **Requests** (`app.notify/copy/run`) are queued and carried out after your call returns; at most 64 per call. `copy` needs the `clipboard` permission.
+- Theme and layout: the last plugin that sets them wins.
+- Official examples: `official/text-tools`, `official/selection-stats`, `official/theme-amber`.
 
 ## Limits
 

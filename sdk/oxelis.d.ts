@@ -49,9 +49,60 @@ interface Oxelis {
     add(def: { id: string; name?: string; run(args?: any): any }): void;
   };
 
-  // planned: events 'capture', 'ocr', 'translated'. Handlers can already be registered.
-  on(event: string, handler: (payload: any) => void | Promise<void>): void;
+  ui: {
+    // wired. A button in the editor's toolbar, at the end of its group. `icon` is one or two characters.
+    // The manifest must list "buttons" in `provides`, or the plugin is not started in the editor.
+    addButton(def: {
+      id: string;
+      group?: 'draw' | 'history' | 'local' | 'recognize' | 'output';
+      icon: string;
+      tip?: string;
+      run(selection: Selection): void | Promise<void>;
+    }): void;
+    // wired. A text panel next to the selection (or under the toolbar with anchor 'bottom'); it gets a toolbar
+    // button that switches it on and off. render() returns the lines; it runs again after recognition,
+    // translation, a button press and when the selection was resized.
+    addPanel(def: {
+      id: string;
+      title?: string;
+      icon?: string;
+      group?: 'draw' | 'history' | 'local' | 'recognize' | 'output';
+      anchor?: 'right' | 'bottom';
+      render(selection: Selection): string[] | Promise<string[]>;
+    }): void;
+    // wired. Built-in buttons to remove ('eraser', 'star'...). 'cancel' and 'translate' stay.
+    hide(ids: string[]): void;
+  };
+
+  theme: {
+    // wired. Colours as '#rrggbb'. The last call wins.
+    set(theme: { accent?: string; bar?: string }): void;
+  };
+
+  layout: {
+    // wired. barPosition 'top': the toolbar tries to sit above the selection.
+    set(layout: { barPosition?: 'top' | 'bottom' }): void;
+  };
+
+  // What the editor shows now, and what a plugin may ask it to do. Requests are carried out after the plugin call returns.
+  app: {
+    notify(text: string): void;
+    copy(text: string): void; // needs "permissions": { "clipboard": true }
+    run(action: 'copy_image' | 'save' | 'pin' | 'ocr' | 'translate' | 'cancel'): void;
+    text(): string | null; // recognised text, lines joined with \n; null before recognition
+    translation(): string | null;
+    selection(): Selection | null;
+    lines(): string[] | null;
+  };
+
+  // wired events:
+  //   'selection'  { x, y, w, h, lines, translation }  the selection became editable
+  //   'ocr'        { lines, source: 'fast' | 'accurate' }  recognition finished; return the new array of lines to replace them
+  //   'translated' { x, y, w, h, lines, translation }  a translation arrived
+  on(event: string, handler: (payload: any) => any | Promise<any>): void;
 }
+
+interface Selection { x: number; y: number; w: number; h: number }
 
 declare const oxelis: Oxelis;
 

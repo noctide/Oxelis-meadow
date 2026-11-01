@@ -10,5 +10,8 @@ Rules that matter:
 - Translators: oxelis.services.translate.register({ id, name, translate(texts, from, to) }). Return an array of strings, same length as texts. May be async.
 - Settings: declare in manifest "settings" ([{key,label,secret,default}]), read with oxelis.settings.get(key). Never hard-code secrets.
 - Limits: 48 MB memory, 60 s per call.
-- Wired today: log, http, settings, translate. Registered but not used yet: ocr, commands, events. Planned: buttons, panels, layouts, themes.
+- Wired today: log, http, settings, translate, and the editor: oxelis.ui.addButton/addPanel/hide, oxelis.theme.set, oxelis.layout.set, oxelis.app.{notify,copy,run,text,translation,selection,lines}, oxelis.on('selection'|'ocr'|'translated').
+- A plugin that adds to the editor MUST list it in manifest "provides": ["buttons","panels","theme","layout","events"], or it is not started there. Copying to the clipboard needs permissions.clipboard=true.
+- The 'ocr' handler receives {lines, source} and may return a new array of lines (post-processing before display).
+- Registered but not used yet: ocr services, commands.
 - Types: sdk/oxelis.d.ts. API description: docs/plugin-api.md. Examples: official/*/main.js.
