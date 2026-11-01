@@ -1,21 +1,19 @@
-# Oxelis plugins (for AI assistants that write plugins)
+# Oxelis plugins (reference for AI assistants that write plugins)
 
-Oxelis is a screen translator/OCR tool. Plugins are JavaScript run in QuickJS, one sandbox per plugin.
-A plugin = folder with manifest.json + main.js. Copy templates/hello-translate and edit.
+Oxelis is a screen capture, text recognition and translation tool. Plugins are JavaScript executed in QuickJS, one sandbox per plugin.
+A plugin is a folder containing manifest.json and main.js. Start from templates/hello-translate or templates/hello-ml.
 
-Rules that matter:
+Rules:
 - main.js is CommonJS: `module.exports = class X { onload(oxelis) { ... } }`. The only global is `oxelis`.
-- No require, no fs, no setTimeout, no fetch, no TextEncoder. Use oxelis.http.fetch (blocking) or oxelis.http.fetchAll (parallel, up to 4).
-- https only, and only hosts listed in manifest permissions.net (exact name or "*.suffix"), or the host of a setting named in permissions.netFromSettings.
-- Translators: oxelis.services.translate.register({ id, name, translate(texts, from, to) }). Return an array of strings, same length as texts. May be async.
-- Settings: declare in manifest "settings" ([{key,label,secret,default}]), read with oxelis.settings.get(key). Never hard-code secrets.
-- Limits: 48 MB memory, 60 s per call.
-- Wired today: log, http, settings, translate, and the editor: oxelis.ui.addButton/addPanel/hide, oxelis.theme.set, oxelis.layout.set, oxelis.app.{notify,copy,run,text,translation,selection,lines}, oxelis.on('selection'|'ocr'|'translated').
-- A plugin that adds to the editor MUST list it in manifest "provides": ["buttons","panels","theme","layout","events"], or it is not started there. Copying to the clipboard needs permissions.clipboard=true.
+- There is no require, file system, setTimeout, fetch or TextEncoder. Network access is oxelis.http.fetch (blocking) or oxelis.http.fetchAll (parallel, at most 4).
+- Network access is https only, restricted to the hosts listed in manifest permissions.net (exact name or "*.suffix") and to the host of a setting named in permissions.netFromSettings. Plain http:// is allowed only to localhost and 127.0.0.1.
+- Translators: oxelis.services.translate.register({ id, name, translate(texts, from, to) }). Return an array of strings with the same length as texts. May be async.
+- Settings: declare them in the manifest ("settings": [{key, label, secret, default}]) and read them with oxelis.settings.get(key). Secrets must never be written into the plugin. Settings with secret:true are stored encrypted with Windows DPAPI.
+- Limits: 48 MB of memory and 60 seconds per call.
+- Editor: oxelis.ui.addButton / addPanel / hide, oxelis.theme.set, oxelis.layout.set, oxelis.app.{notify, copy, run, text, translation, selection, lines}, oxelis.on('selection' | 'ocr' | 'translated'). A plugin that extends the editor must list it in the manifest: "provides": ["buttons", "panels", "theme", "layout", "events"]; otherwise it is not started there. Copying to the clipboard requires permissions.clipboard = true.
 - The 'ocr' handler receives {lines, source} and may return a new array of lines (post-processing before display).
-- Registered but not used yet: ocr services, commands.
-- Types: sdk/oxelis.d.ts. API description: docs/plugin-api.md. Examples: official/*/main.js.
-
-- Plain http:// is allowed only to localhost / 127.0.0.1 (list `localhost` in permissions.net, or take the address from a netFromSettings setting). Everything else must be https.
-- OCR model packs: manifest `ocr: {engine:'ppocr', det, rec, dict, runtime}`; no main.js needed. Settings with secret:true are stored DPAPI-sealed.
-- Models: permissions.ml=true, then `const m = oxelis.ml.load('models/x.onnx'); m.run({name:{dtype,shape,data}}, wanted?)` -> {name:{dtype,shape,data}}. Max 8 models, files inside the plugin folder, tensors are JSON (keep them small). See templates/hello-ml.
+- Models: permissions.ml = true, then `const m = oxelis.ml.load('models/x.onnx'); m.run({ name: { dtype, shape, data } }, wanted?)` returns { name: { dtype, shape, data } }. At most 8 models; files must be inside the plugin folder; tensors are exchanged as JSON and should be kept small.
+- OCR model packs: manifest `ocr: { engine: 'ppocr', det, rec, dict, runtime }`; no main.js is required.
+- Credits: a plugin that uses a service, model or program made by others must list it in manifest "credits": [{ name, by, license, url }], with the name spelled as its owner spells it. Models of others are not stored in the repository.
+- Registered but not yet invoked by the application: ocr services and commands.
+- References: sdk/oxelis.d.ts (types), docs/plugin-api.md (API reference), official/*/main.js (examples).

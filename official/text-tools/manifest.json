@@ -3,8 +3,13 @@
   "name": "Text tools",
   "version": "0.1.0",
   "author": "Oxelis",
-  "description": "Two buttons for recognised text: copy it as one paragraph, copy it without blank lines. Also trims trailing spaces of every recognised line.",
+  "description": "Adds two buttons for recognized text, one that copies it as a single paragraph and one that copies it without blank lines, and removes trailing whitespace from each recognized line.",
   "main": "main.js",
-  "provides": ["buttons", "events"],
-  "permissions": { "clipboard": true }
+  "provides": [
+    "buttons",
+    "events"
+  ],
+  "permissions": {
+    "clipboard": true
+  }
 }

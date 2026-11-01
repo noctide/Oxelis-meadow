@@ -1,27 +1,66 @@
 # Third-party notices
 
-Oxelis uses the work of many people. Their names are written here as they write them, and the
-same lines are shown in the plugin manager next to every plugin that uses them. Nothing below is
-renamed, rebranded or claimed as ours.
+Oxelis builds on the work of others. Each work is named here as its owner names it, and the same
+information is shown in the plugin manager next to every plugin that uses it. No work listed below
+is renamed or presented as part of Oxelis.
 
 ## Models, programs and services used through plugins (not shipped inside Oxelis)
 
 | Work | Made by | License | Where |
 |---|---|---|---|
 | PaddleOCR (PP-OCRv5 detection, PP-OCRv6 recognition models) | PaddlePaddle authors, Baidu | Apache-2.0 | https://github.com/PaddlePaddle/PaddleOCR |
-| onnxocr (ONNX conversion of the PaddleOCR models; the files are taken from this package) | jingsongliujing | Apache-2.0 | https://pypi.org/project/onnxocr/ |
+| onnxocr (ONNX conversion of the PaddleOCR models; source of the model files) | jingsongliujing | Apache-2.0 | https://pypi.org/project/onnxocr/ |
 | ONNX Runtime | Microsoft | MIT | https://github.com/microsoft/onnxruntime |
 | MTranServer | xxnuo | Apache-2.0 | https://github.com/xxnuo/MTranServer |
-| Firefox Translations models (Bergamot) | Mozilla | see the model repository | https://github.com/mozilla/firefox-translations-models |
-| LibreTranslate | LibreTranslate contributors | AGPL-3.0 | https://github.com/LibreTranslate/LibreTranslate |
+| Firefox Translations models (Bergamot) | Mozilla | Refer to the model repository | https://github.com/mozilla/firefox-translations-models |
+| LibreTranslate (used only through its network API; none of its code is included) | LibreTranslate contributors | AGPL-3.0 | https://github.com/LibreTranslate/LibreTranslate |
 | Argos Translate | Argos Open Technologies | MIT | https://github.com/argosopentech/argos-translate |
-| Hy-MT2 | Tencent Hunyuan | not stated in the README; read the license on the model page before use | https://github.com/Tencent-Hunyuan/Hy-MT2 |
-| Google Translate, DeepL API, MyMemory, OpenAI API format | Google, DeepL SE, Translated, OpenAI | web services, each under its own terms | see the plugins |
+| Hy-MT2 | Tencent Hunyuan | No license is stated in the project README; consult the model page before use | https://github.com/Tencent-Hunyuan/Hy-MT2 |
+| Google Translate, DeepL API, MyMemory, OpenAI API format | Google, DeepL SE, Translated, OpenAI | Web services, each under its own terms of use | see the plugins |
 
-The models and programs above are **not** part of Oxelis: they are installed by the user, through
-plugins, from their owners. If you use Hy-MT2 in work you publish, cite: *Hy-MT2: A Family of Fast,
+The models and programs above are not part of Oxelis. They are installed by the user, through
+plugins, from their owners. Publications that use Hy-MT2 are asked by its authors to cite: *Hy-MT2: A Family of Fast,
 Efficient and Powerful Multilingual Translation Models in the Wild* (Mao Zheng et al., 2026,
 arXiv:2605.22064, https://arxiv.org/abs/2605.22064).
+
+## Methods implemented in Oxelis code (written here, following published work)
+
+No source code of the works below is included; Oxelis contains its own implementation of the described method.
+
+| Method | Origin | Where in Oxelis |
+|---|---|---|
+| Differentiable Binarization text detection and its post-processing (threshold, dilation, score filter, unclip) | Liao et al., "Real-time Scene Text Detection with Differentiable Binarization", AAAI 2020; the post-processing parameters follow the implementation in PaddleOCR (Apache-2.0) | `crates/oxelis-ppocr/src/det.rs` |
+| CRNN recognition with greedy CTC decoding | Shi et al., "An End-to-End Trainable Neural Network for Image-based Sequence Recognition", 2015; Graves et al., "Connectionist Temporal Classification", ICML 2006; character table layout as distributed by PaddleOCR | `crates/oxelis-ppocr/src/rec.rs` |
+| Bilinear sampling grid and 2x2 dilation, reproduced so that results match the reference pipeline | OpenCV (`INTER_LINEAR`, `dilate`); OpenCV code is not included | `crates/oxelis-ppocr/src/image.rs`, `det.rs` |
+| Translation instruction template, recommended sampling parameters and the language-name table used by `translate-hymt2` | Hy-MT2 README, Tencent Hunyuan | `plugins/official/translate-hymt2/main.js` |
+
+## Specifications and formats implemented
+
+| Specification | Origin |
+|---|---|
+| Model Context Protocol (stdio transport, tools) | https://modelcontextprotocol.io/ (Anthropic and contributors) |
+| JSON-RPC 2.0 | https://www.jsonrpc.org/specification |
+| Ed25519 signatures (RFC 8032), through the ed25519-compact crate; SHA-256 (FIPS 180-4), through the sha2 crate | IETF; NIST; crate authors as listed below |
+| ZIP and PNG file formats, through the zip and png crates | PKWARE; W3C |
+| ONNX model format and operator set | https://onnx.ai/ (The Linux Foundation) |
+
+## Platform interfaces used
+
+Windows GDI, Windows.Media.Ocr (WinRT), WinHTTP, the data protection API (DPAPI), the input method
+interfaces and the system fonts Microsoft YaHei UI and Consolas are provided by Microsoft Windows.
+Fonts are used by name from the user's system and are not distributed with Oxelis.
+
+## Development material (not part of the released program)
+
+| Item | Made by | License | Use |
+|---|---|---|---|
+| RapidOCR (rapidocr, rapidocr-onnxruntime) | RapidAI | Apache-2.0 | Reference OCR pipeline in `prototype/` |
+| OpenCV (opencv-python-headless) | OpenCV team | Apache-2.0 | Image operations in `prototype/` |
+| Pillow, NumPy | Pillow contributors; NumPy developers | HPND; BSD-3-Clause | `prototype/` |
+| Tesseract OCR | Tesseract contributors | Apache-2.0 | Comparison in `prototype/` |
+| Playwright | Microsoft | Apache-2.0 | Generates the synthetic test images (`prototype/tests/gen.js`) |
+| Windows OCR | Microsoft | part of Windows | Comparison data in `prototype/winocr_out/` |
+| Test screenshots (`prototype/tests/real_*.png`, `user*.png`, `tools/winocr-test/images/`) | Supplied by the project owner; they show the interfaces of Visual Studio Code (Microsoft) and Google Chrome (Google) and source code and text of the owner's own projects | the owner's and the respective products' own terms | Recognition accuracy tests only |
 
 ## Compiled into Oxelis
 

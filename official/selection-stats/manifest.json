@@ -1,9 +1,11 @@
 {
   "id": "selection-stats",
-  "name": "Selection stats",
+  "name": "Selection statistics",
   "version": "0.1.0",
   "author": "Oxelis",
-  "description": "A panel next to the selection: its size, and how many lines, words and characters were recognised.",
+  "description": "Panel beside the selection showing its dimensions and, after recognition, the number of lines, words and characters.",
   "main": "main.js",
-  "provides": ["panels"]
+  "provides": [
+    "panels"
+  ]
 }

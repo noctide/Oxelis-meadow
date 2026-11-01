@@ -3,7 +3,10 @@
   "name": "Amber theme",
   "version": "0.1.0",
   "author": "Oxelis",
-  "description": "Amber frame and a dark warm toolbar; the toolbar prefers to sit above the selection.",
+  "description": "Amber selection frame and a dark warm toolbar. The toolbar is placed above the selection when space permits.",
   "main": "main.js",
-  "provides": ["theme", "layout"]
+  "provides": [
+    "theme",
+    "layout"
+  ]
 }

@@ -1,9 +1,9 @@
 {
-  "id": "ocr-ppocr",
-  "name": "PP-OCR (accurate recognition)",
+  "id": "paddleocr",
+  "name": "PaddleOCR",
   "version": "0.1.0",
   "author": "Oxelis",
-  "description": "Model pack for the accurate OCR engine: PP-OCRv5 detector + PP-OCRv6 small recognizer (Apache-2.0) and ONNX Runtime (MIT). Without it the app uses Windows OCR. Models are not in the repository: run tools/fetch-ocr-assets.py or install from the plugin manager.",
+  "description": "Model pack for accurate text recognition: the PaddleOCR PP-OCRv5 detection model and PP-OCRv6 small recognition model, with the ONNX Runtime library. The models are the work of the PaddleOCR authors and are installed from their original distribution by tools/fetch-ocr-assets.py; they are not part of Oxelis. Without this plugin, Oxelis falls back to Windows OCR.",
   "ocr": {
     "engine": "ppocr",
     "det": "det.onnx",
@@ -13,13 +13,13 @@
   },
   "credits": [
     {
-      "name": "PaddleOCR (PP-OCRv5 detection, PP-OCRv6 recognition)",
+      "name": "PaddleOCR",
       "by": "PaddlePaddle authors, Baidu",
       "license": "Apache-2.0",
       "url": "https://github.com/PaddlePaddle/PaddleOCR"
     },
     {
-      "name": "onnxocr (ONNX conversion of the PaddleOCR models, the source of the files)",
+      "name": "onnxocr",
       "by": "jingsongliujing",
       "license": "Apache-2.0",
       "url": "https://pypi.org/project/onnxocr/"

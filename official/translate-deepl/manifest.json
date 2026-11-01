@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "minAppVersion": "0.0.1",
   "author": "Oxelis",
-  "description": "DeepL API (free or pro key). Put the key in the plugin's settings.",
+  "description": "Translation through the DeepL API (free or pro key). The key is entered in the plugin settings.",
   "permissions": {
     "net": [
       "api-free.deepl.com",
@@ -27,7 +27,7 @@
     {
       "name": "DeepL API",
       "by": "DeepL SE",
-      "license": "a web service, subject to DeepL's terms",
+      "license": "Web service, subject to the provider's terms of use",
       "url": "https://www.deepl.com/pro-api"
     }
   ]

@@ -1,17 +1,12 @@
-# Community index
+# Community plugins
 
-`index.json` lists community plugins. An entry:
+Plugins written by third parties are submitted as pull requests that add a folder `community/<id>/` containing `manifest.json` and the plugin files. The folder name must equal the plugin id.
 
-```json
-{
-  "id": "translate-example",
-  "name": "Example translator",
-  "author": "someone",
-  "description": "One sentence.",
-  "repo": "someone/oxelis-translate-example",
-  "kinds": ["translate"],
-  "net": ["api.example.com"]
-}
-```
+Requirements for acceptance:
 
-`net` is a copy of the hosts in the plugin's manifest, so that people can see what a plugin talks to before installing it. The plugin's own repository is the source of truth; an entry that does not match the manifest is removed.
+* The manifest declares every permission the plugin needs, and nothing more.
+* A plugin that uses a service, model or program of others lists it under `credits`, with the owner's own name, the owner, the license and an https address.
+* The repository does not contain models or programs that belong to others; the plugin refers to them and the user obtains them from their owners.
+* The plugin runs within the limits described in [docs/plugin-api.md](../docs/plugin-api.md).
+
+Accepted plugins are listed in the signed catalog as community plugins. They remain disabled after installation until the user has reviewed their permissions and confirmed them.

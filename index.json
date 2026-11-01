@@ -4,15 +4,15 @@
     {
       "author": "Oxelis",
       "credits": [],
-      "description": "Lets AI assistants (Claude Desktop, Cursor...) read text on your screen and translate it through oxelis-host.exe. Off unless this plugin is installed and enabled. Pictures of the screen need 'screenshot' in allowed tools.",
+      "description": "Switch and settings for the Model Context Protocol bridge (oxelis-host.exe). While this plugin is installed and enabled, AI assistants such as Claude Desktop may use the tools named in its allowed_tools setting to read and translate on-screen text. Screenshots are disabled unless 'screenshot' is added to allowed_tools.",
       "id": "mcp-server",
       "kinds": [
         "mcp"
       ],
-      "name": "MCP server (AI assistants)",
+      "name": "MCP server",
       "net": [],
-      "sha256": "b7eeec10bd4f6f0e7fdc4e1f3492d6e37da43a924c595978a9b9a925cad2c6e6",
-      "size": 725,
+      "sha256": "2adcc806117cb34b57e694e0c5ba19881ee2ba4470400fa032ea279757e37d22",
+      "size": 767,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/mcp-server-0.1.0.zip",
       "version": "0.1.0"
@@ -20,15 +20,15 @@
     {
       "author": "Oxelis",
       "credits": [],
-      "description": "A panel next to the selection: its size, and how many lines, words and characters were recognised.",
+      "description": "Panel beside the selection showing its dimensions and, after recognition, the number of lines, words and characters.",
       "id": "selection-stats",
       "kinds": [
         "panels"
       ],
-      "name": "Selection stats",
+      "name": "Selection statistics",
       "net": [],
-      "sha256": "735dd52ad670951fbe43a378406f6f7d25e42eee8f161960255f0452a79aa4b6",
-      "size": 804,
+      "sha256": "707a9665a2199f62dbe2b2cba0a3a4104315072abe875cc935154490c2d6cc4b",
+      "size": 816,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/selection-stats-0.1.0.zip",
       "version": "0.1.0"
@@ -36,7 +36,7 @@
     {
       "author": "Oxelis",
       "credits": [],
-      "description": "Two buttons for recognised text: copy it as one paragraph, copy it without blank lines. Also trims trailing spaces of every recognised line.",
+      "description": "Adds two buttons for recognized text, one that copies it as a single paragraph and one that copies it without blank lines, and removes trailing whitespace from each recognized line.",
       "id": "text-tools",
       "kinds": [
         "buttons",
@@ -44,8 +44,8 @@
       ],
       "name": "Text tools",
       "net": [],
-      "sha256": "481dfb5d9318bbd54db727e7008bdc182a75c2b124503a05686fb5edad75f972",
-      "size": 959,
+      "sha256": "f8cc9ac6d9364f9b1d91108b4f103fca93a98187f72f7a56a059b573adee89ad",
+      "size": 982,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/text-tools-0.1.0.zip",
       "version": "0.1.0"
@@ -53,7 +53,7 @@
     {
       "author": "Oxelis",
       "credits": [],
-      "description": "Amber frame and a dark warm toolbar; the toolbar prefers to sit above the selection.",
+      "description": "Amber selection frame and a dark warm toolbar. The toolbar is placed above the selection when space permits.",
       "id": "theme-amber",
       "kinds": [
         "theme",
@@ -61,8 +61,8 @@
       ],
       "name": "Amber theme",
       "net": [],
-      "sha256": "79ddef154868a554b2b67963aa097be5de6e7e6f6451ccd86ee9436c537284b6",
-      "size": 497,
+      "sha256": "94fb56f468b89bab805fb8ed1eb3ef82603e449721f7bc874e027977917aa44b",
+      "size": 514,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/theme-amber-0.1.0.zip",
       "version": "0.1.0"
@@ -72,12 +72,12 @@
       "credits": [
         {
           "by": "DeepL SE",
-          "license": "a web service, subject to DeepL's terms",
+          "license": "Web service, subject to the provider's terms of use",
           "name": "DeepL API",
           "url": "https://www.deepl.com/pro-api"
         }
       ],
-      "description": "DeepL API (free or pro key). Put the key in the plugin's settings.",
+      "description": "Translation through the DeepL API (free or pro key). The key is entered in the plugin settings.",
       "id": "translate-deepl",
       "kinds": [
         "translate"
@@ -87,8 +87,8 @@
         "api-free.deepl.com",
         "api.deepl.com"
       ],
-      "sha256": "d7e4945e74be39f1859fe8bd6fb264b92d0207b2377c4bc9486f4698398c040d",
-      "size": 1384,
+      "sha256": "d38fa0abaec5e53bbc74efe9522c125292d78e542713ebe733114506775a622d",
+      "size": 1411,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-deepl-0.1.0.zip",
       "version": "0.1.0"
@@ -98,22 +98,22 @@
       "credits": [
         {
           "by": "Google",
-          "license": "a web service, subject to Google's terms",
+          "license": "Web service, subject to the provider's terms of use",
           "name": "Google Translate",
           "url": "https://translate.google.com/"
         }
       ],
-      "description": "Translation through Google's public web endpoint. No key. Unofficial: it can change or throttle without notice.",
+      "description": "Translation through the public web endpoint of Google Translate, without a key. This endpoint is unofficial and may change or be rate-limited without notice.",
       "id": "translate-google",
       "kinds": [
         "translate"
       ],
-      "name": "Google Translate (web)",
+      "name": "Google Translate (web endpoint)",
       "net": [
         "translate.googleapis.com"
       ],
-      "sha256": "7e5cbdda97dfe81afc6de44de9feb2ba62d85dfc3a8cfa9ccfa0e74bcb16d7a1",
-      "size": 1524,
+      "sha256": "b1e06c3758d736a7368b36b0c75d66cdb4be7d46657b314573ac9950deab0937",
+      "size": 1550,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-google-0.1.0.zip",
       "version": "0.1.0"
@@ -123,26 +123,26 @@
       "credits": [
         {
           "by": "Tencent Hunyuan",
-          "license": "not stated in the README; read the license on the model page before use",
+          "license": "No license is stated in the project README; consult the model page before use",
           "name": "Hy-MT2",
           "url": "https://github.com/Tencent-Hunyuan/Hy-MT2"
         },
         {
           "by": "Mao Zheng et al., 2026 (arXiv:2605.22064)",
-          "license": "cite when you use the model",
+          "license": "Citation requested by the authors",
           "name": "Hy-MT2: A Family of Fast, Efficient and Powerful Multilingual Translation Models in the Wild",
           "url": "https://arxiv.org/abs/2605.22064"
         }
       ],
-      "description": "Translation with Tencent Hunyuan's Hy-MT2 model, served on this machine by llama.cpp (llama-server), vLLM or Ollama. Oxelis does not ship or install the model: you download it from its owner and run the server yourself. The address you enter is the only host this plugin can reach.",
+      "description": "Translation with Tencent Hunyuan's Hy-MT2 model, served locally by llama.cpp (llama-server), vLLM or Ollama through an OpenAI-compatible API. Oxelis neither includes nor installs the model; the user obtains it from its owner and runs the server. The plugin can reach only the address entered in its settings.",
       "id": "translate-hymt2",
       "kinds": [
         "translate"
       ],
-      "name": "Hy-MT2 (local model server)",
+      "name": "Hy-MT2 (local server)",
       "net": [],
-      "sha256": "05894a89e7b9c463ee37f1f33668318bfb7439775c8b088a3d8b11db78a0baf0",
-      "size": 2255,
+      "sha256": "ed3a9223fc9004a8afa4ce0f05c4b4a7024975a2c269f39a843796bbc9ec6548",
+      "size": 2343,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-hymt2-0.1.0.zip",
       "version": "0.1.0"
@@ -159,19 +159,19 @@
         {
           "by": "Argos Open Technologies",
           "license": "MIT",
-          "name": "Argos Translate (its translation engine)",
+          "name": "Argos Translate",
           "url": "https://github.com/argosopentech/argos-translate"
         }
       ],
-      "description": "Translation with a LibreTranslate server (Argos models) that you run yourself, for example `libretranslate` or the Docker image on http://localhost:5000. Nothing leaves your machine. The address you enter is the only host this plugin can reach.",
+      "description": "Translation through a LibreTranslate server operated by the user, for example the libretranslate command or its Docker image at http://localhost:5000. All processing stays on the local machine. The plugin can reach only the address entered in its settings.",
       "id": "translate-libre",
       "kinds": [
         "translate"
       ],
-      "name": "LibreTranslate (offline, on this machine)",
+      "name": "LibreTranslate (local server)",
       "net": [],
-      "sha256": "f7f0a47b905a6218a539114170886b8b5c9793abc1684f6d0f27c5250ead10a5",
-      "size": 1487,
+      "sha256": "cbbacf4f593b9736ea3a67faf403c46ceeb68315ad398aac9c6c8147975f9291",
+      "size": 1470,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-libre-0.1.0.zip",
       "version": "0.1.0"
@@ -187,20 +187,20 @@
         },
         {
           "by": "Mozilla",
-          "license": "see the model repository",
-          "name": "Firefox Translations models (Bergamot)",
+          "license": "Refer to the model repository",
+          "name": "Firefox Translations models",
           "url": "https://github.com/mozilla/firefox-translations-models"
         }
       ],
-      "description": "Offline translation with MTranServer (https://github.com/xxnuo/MTranServer, Bergamot/Firefox Translations models) running on this machine, default http://localhost:8989. Nothing leaves your machine. The address you enter is the only host this plugin can reach.",
+      "description": "Offline translation through MTranServer (https://github.com/xxnuo/MTranServer), which uses Bergamot models from Firefox Translations and is operated by the user, by default at http://localhost:8989. All processing stays on the local machine. The plugin can reach only the address entered in its settings.",
       "id": "translate-mtran",
       "kinds": [
         "translate"
       ],
-      "name": "MTranServer (offline, on this machine)",
+      "name": "MTranServer (local server)",
       "net": [],
-      "sha256": "aba776a6a12d66e9258d55808546247d7569cb90eb1a10f92b2358c0345854d3",
-      "size": 1796,
+      "sha256": "7e1d75d3894ec697032364b71fe929fa17cf37eca422be04c778fe08a3452b39",
+      "size": 1824,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-mtran-0.1.0.zip",
       "version": "0.1.0"
@@ -210,12 +210,12 @@
       "credits": [
         {
           "by": "Translated",
-          "license": "a web service, subject to MyMemory's terms",
+          "license": "Web service, subject to the provider's terms of use",
           "name": "MyMemory",
           "url": "https://mymemory.translated.net/"
         }
       ],
-      "description": "Free translation memory with a documented public API. No key; about 5000 characters a day per address. Quality is below the big engines.",
+      "description": "Translation through the public MyMemory API. No key is required; the service limits use to approximately 5,000 characters per day per address, and quality is lower than that of the larger engines.",
       "id": "translate-mymemory",
       "kinds": [
         "translate"
@@ -224,8 +224,8 @@
       "net": [
         "api.mymemory.translated.net"
       ],
-      "sha256": "e7a0b5563b14cf35cba5d55518e82f8a5c543d84e86f05fa23b351a1bcac84bb",
-      "size": 1432,
+      "sha256": "7b214ab3c976898ec35a139edd05c32e793d17a6585d833eeae8e0b87ede8c6e",
+      "size": 1467,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-mymemory-0.1.0.zip",
       "version": "0.1.0"
@@ -235,24 +235,24 @@
       "credits": [
         {
           "by": "OpenAI",
-          "license": "the API format is used by many servers; the server you enter has its own terms",
-          "name": "OpenAI API (chat completions format)",
+          "license": "Interface specification; the server in use is subject to its own terms",
+          "name": "OpenAI API (chat completions)",
           "url": "https://platform.openai.com/docs/api-reference/chat"
         }
       ],
-      "description": "Translation with any large language model behind an OpenAI-compatible chat API: OpenAI, DeepSeek, a model on this machine (Ollama: http://localhost:11434/v1, no key needed, works offline). The address you enter is the only host this plugin can reach.",
+      "description": "Translation with a large language model behind an OpenAI-compatible chat completions API, such as OpenAI, DeepSeek, or a model served locally (for example Ollama at http://localhost:11434/v1, which needs no key and works offline). The plugin can reach only the address entered in its settings.",
       "id": "translate-openai",
       "kinds": [
         "translate"
       ],
-      "name": "LLM (OpenAI-compatible)",
+      "name": "OpenAI-compatible chat API",
       "net": [],
-      "sha256": "08ce885e1f8d83470d38e9a7f2738995078c57b5f5331fce16b0e1939204eb83",
-      "size": 1963,
+      "sha256": "636a521528d6483ca3e0e3c5ca5efd540acebc79ff30e47a0cd2d8539030057d",
+      "size": 1973,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/translate-openai-0.1.0.zip",
       "version": "0.1.0"
     }
   ],
-  "signature": "84e834dee1516a8731fe0397d120b2647f99e27c96eae289d275b41748f23dbf7222cfb0fce9afdb7fcf1240f6502e9f1bfa41cefcb9e36244025f5945a67805"
+  "signature": "143870b6296007a9ba8de96626eba0a8f1148160b21ba557df2e304c2cba15bd2894b3d6157d10907cbcedc75fbba64fc9ce260da94bdfd8c577e46e50773e05"
 }

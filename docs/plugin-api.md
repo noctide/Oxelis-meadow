@@ -1,4 +1,4 @@
-# Plugin API (version 0)
+# Plugin API reference
 
 A plugin is a folder:
 
@@ -42,24 +42,24 @@ module.exports = class Hello {
 };
 ```
 
-## What works today
+## API status
 
-| API | state |
+| API | Status |
 |---|---|
-| `oxelis.log` | wired (goes to the console) |
-| `oxelis.http.fetch`, `fetchAll` | wired; https only, only declared hosts |
-| `oxelis.settings.get` | wired |
-| `oxelis.services.translate.register` | wired |
-| `oxelis.services.ocr.register` | registered, not called yet |
-| `oxelis.commands.add` | registered, not shown anywhere yet |
-| `oxelis.ui.addButton`, `addPanel`, `hide` | wired (editor) |
-| `oxelis.theme.set`, `oxelis.layout.set` | wired (editor) |
-| `oxelis.app.notify/copy/run/text/translation/selection/lines` | wired (editor) |
-| `oxelis.on('selection' \| 'ocr' \| 'translated', fn)` | wired (editor) |
+| `oxelis.log` | implemented; writes to the console |
+| `oxelis.http.fetch`, `fetchAll` | implemented; https only (plain http to localhost), declared hosts only |
+| `oxelis.settings.get` | implemented |
+| `oxelis.services.translate.register` | implemented |
+| `oxelis.services.ocr.register` | registration only; not yet invoked by the application |
+| `oxelis.commands.add` | registration only; not yet exposed in the interface |
+| `oxelis.ui.addButton`, `addPanel`, `hide` | implemented (editor) |
+| `oxelis.theme.set`, `oxelis.layout.set` | implemented (editor) |
+| `oxelis.app.notify/copy/run/text/translation/selection/lines` | implemented (editor) |
+| `oxelis.on('selection' \| 'ocr' \| 'translated', fn)` | implemented (editor) |
 
 ## The editor
 
-The editor is the toolbar and the panels around the selection. Plugins that declare `provides` are started when a selection becomes editable (a few milliseconds each) and live until the editor closes. They run on the editor's thread, so keep calls short.
+The editor is the toolbar and the panels around the selection. Plugins that declare `provides` are started when a selection becomes editable (a few milliseconds each) and remain loaded until the editor closes. They run on the editor's thread; calls should therefore be short.
 
 ```js
 module.exports = {
@@ -78,7 +78,7 @@ module.exports = {
 - **Panels** are text boxes; the user switches them on with their toolbar button. `render` returns an array of lines.
 - **`oxelis.ui.hide([...])`** removes built-in buttons; `cancel` and `translate` cannot be hidden.
 - **Events**: a handler of `ocr` receives `{ lines, source }` and may return a new array of lines. Handlers run in plugin order; each sees the previous result.
-- **Requests** (`app.notify/copy/run`) are queued and carried out after your call returns; at most 64 per call. `copy` needs the `clipboard` permission.
+- **Requests** (`app.notify/copy/run`) are queued and carried out after the plugin call returns; at most 64 per call. `copy` needs the `clipboard` permission.
 - Theme and layout: the last plugin that sets them wins.
 - Official examples: `official/text-tools`, `official/selection-stats`, `official/theme-amber`.
 
@@ -92,7 +92,7 @@ module.exports = {
 
 ## Testing a plugin without the app
 
-The plugin host is the crate `oxelis-plugins` in the Oxelis repository; its tests run plugins against a pretend network. A plugin that parses in Node (`new Function('module', 'exports', 'oxelis', source)`) usually runs in the app, but QuickJS has no `TextEncoder`, `setTimeout` or `fetch`.
+The plugin host is the crate `oxelis-plugins` in the Oxelis repository; its tests run plugins against a pretend network. A plugin that loads in Node.js (`new Function('module', 'exports', 'oxelis', source)`) generally runs in the application as well, with the exception that QuickJS provides no `TextEncoder`, `setTimeout` or `fetch`.
 
 ## MCP
 
@@ -106,11 +106,11 @@ const out = model.run({ input_ids: { dtype: 'int64', shape: [1, 4], data: [5, 9,
 out.last_hidden_state.shape; out.last_hidden_state.data;       // flat numbers
 ```
 
-The host runs the model (ONNX Runtime, CPU). Tensors travel as JSON, so keep outputs small (a few tens of thousands of numbers per call). Use this to ship your own translation or OCR engine as a plugin; tokenizers and search loops are plain JavaScript.
+The host runs the model with ONNX Runtime on the CPU. Tensors are exchanged as JSON; outputs should therefore be limited to a few tens of thousands of values per call. This interface allows a translation or OCR engine to be delivered entirely as a plugin; tokenizers and search loops are written in JavaScript.
 
-## Credits (required when you use others' work)
+## Credits
 
-If your plugin talks to a service, runs a model, or ships a program that somebody else made, say so in the manifest, with their own name for it:
+A plugin that uses a service, runs a model or includes a program made by others must name them in its manifest, using the name its owner uses:
 
 ```json
 "credits": [
@@ -118,4 +118,4 @@ If your plugin talks to a service, runs a model, or ships a program that somebod
 ]
 ```
 
-Write names exactly as the owners write them. If you could not find the license, say that, do not guess. The plugin manager shows these lines, and `oxelis-sign` refuses to list a plugin that has `net`, `netFromSettings`, `ml` or `ocr` but no credits. Do not put other people's models in the Oxelis repository: a plugin points to them, and the user gets them from their owners.
+Names must be written exactly as their owners write them. If the license cannot be determined, the entry states that instead of assuming one. The plugin manager displays these entries, and `oxelis-sign` declines to list a plugin that declares `net`, `netFromSettings`, `ml` or `ocr` without credits. Models and programs of others are not stored in the plugin repository: a plugin refers to them, and the user obtains them from their owners.

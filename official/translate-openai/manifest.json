@@ -1,10 +1,10 @@
 {
   "id": "translate-openai",
-  "name": "LLM (OpenAI-compatible)",
+  "name": "OpenAI-compatible chat API",
   "version": "0.1.0",
   "minAppVersion": "0.0.1",
   "author": "Oxelis",
-  "description": "Translation with any large language model behind an OpenAI-compatible chat API: OpenAI, DeepSeek, a model on this machine (Ollama: http://localhost:11434/v1, no key needed, works offline). The address you enter is the only host this plugin can reach.",
+  "description": "Translation with a large language model behind an OpenAI-compatible chat completions API, such as OpenAI, DeepSeek, or a model served locally (for example Ollama at http://localhost:11434/v1, which needs no key and works offline). The plugin can reach only the address entered in its settings.",
   "permissions": {
     "netFromSettings": [
       "base_url"
@@ -29,9 +29,9 @@
   ],
   "credits": [
     {
-      "name": "OpenAI API (chat completions format)",
+      "name": "OpenAI API (chat completions)",
       "by": "OpenAI",
-      "license": "the API format is used by many servers; the server you enter has its own terms",
+      "license": "Interface specification; the server in use is subject to its own terms",
       "url": "https://platform.openai.com/docs/api-reference/chat"
     }
   ]

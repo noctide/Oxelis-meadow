@@ -1,5 +1,5 @@
 // Types of the `oxelis` object that every plugin receives. API version 0.
-// Marked "wired" = works in the app today; "planned" = declared here so that plugins can be written ahead.
+// "implemented" means available in the application today; "planned" means declared so that plugins can be written in advance.
 
 interface OxelisResponse {
   status: number;
@@ -16,22 +16,22 @@ interface OxelisRequest {
 }
 
 interface Oxelis {
-  log(...args: any[]): void;         // wired
+  log(...args: any[]): void;         // Implemented
 
   http: {
-    // wired. Blocking. Throws on permission errors and network failures; a 4xx/5xx answer is returned (ok = false).
+    // Implemented. Blocking. Throws on permission errors and network failures; a 4xx/5xx answer is returned (ok = false).
     fetch(url: string, init?: Omit<OxelisRequest, 'url'>): OxelisResponse;
-    // wired. Up to four requests at the same time. A failed request is { error } instead of throwing.
+    // Implemented. Up to four requests at the same time. A failed request is { error } instead of throwing.
     fetchAll(requests: OxelisRequest[]): Array<OxelisResponse | { error: string }>;
   };
 
   settings: {
-    get(key: string): string | null; // wired. Values come from plugins/data/<id>.json, defaults from the manifest.
+    get(key: string): string | null; // Implemented. Values come from plugins/data/<id>.json, defaults from the manifest.
   };
 
   services: {
     translate: {
-      // wired
+      // Implemented
       register(def: {
         id: string;
         name?: string;
@@ -39,18 +39,18 @@ interface Oxelis {
       }): void;
     };
     ocr: {
-      // planned: registered, not called yet
+      // Planned: registered, not yet invoked by the application
       register(def: { id: string; name?: string; recognize(image: unknown): unknown }): void;
     };
   };
 
   commands: {
-    // planned: registered and callable by the host, no palette or hotkey yet
+    // Planned: registered and callable by the host; no command palette or hotkey yet
     add(def: { id: string; name?: string; run(args?: any): any }): void;
   };
 
   ml: {
-    // wired. Needs "permissions": { "ml": true }. The model is an .onnx file inside the plugin folder (at most 8 per plugin).
+    // Implemented. Needs "permissions": { "ml": true }. The model is an .onnx file inside the plugin folder (at most 8 per plugin).
     load(path: string): {
       inputs: string[];
       outputs: string[];
@@ -59,7 +59,7 @@ interface Oxelis {
   };
 
   ui: {
-    // wired. A button in the editor's toolbar, at the end of its group. `icon` is one or two characters.
+    // Implemented. A button in the editor's toolbar, at the end of its group. `icon` is one or two characters.
     // The manifest must list "buttons" in `provides`, or the plugin is not started in the editor.
     addButton(def: {
       id: string;
@@ -68,7 +68,7 @@ interface Oxelis {
       tip?: string;
       run(selection: Selection): void | Promise<void>;
     }): void;
-    // wired. A text panel next to the selection (or under the toolbar with anchor 'bottom'); it gets a toolbar
+    // Implemented. A text panel next to the selection (or under the toolbar with anchor 'bottom'); it gets a toolbar
     // button that switches it on and off. render() returns the lines; it runs again after recognition,
     // translation, a button press and when the selection was resized.
     addPanel(def: {
@@ -79,17 +79,17 @@ interface Oxelis {
       anchor?: 'right' | 'bottom';
       render(selection: Selection): string[] | Promise<string[]>;
     }): void;
-    // wired. Built-in buttons to remove ('eraser', 'star'...). 'cancel' and 'translate' stay.
+    // Implemented. Built-in buttons to remove ('eraser', 'star'...). 'cancel' and 'translate' stay.
     hide(ids: string[]): void;
   };
 
   theme: {
-    // wired. Colours as '#rrggbb'. The last call wins.
+    // Implemented. Colours as '#rrggbb'. The last call wins.
     set(theme: { accent?: string; bar?: string }): void;
   };
 
   layout: {
-    // wired. barPosition 'top': the toolbar tries to sit above the selection.
+    // Implemented. barPosition 'top': the toolbar is placed above the selection when space permits.
     set(layout: { barPosition?: 'top' | 'bottom' }): void;
   };
 
@@ -104,7 +104,7 @@ interface Oxelis {
     lines(): string[] | null;
   };
 
-  // wired events:
+  // Implemented events:
   //   'selection'  { x, y, w, h, lines, translation }  the selection became editable
   //   'ocr'        { lines, source: 'fast' | 'accurate' }  recognition finished; return the new array of lines to replace them
   //   'translated' { x, y, w, h, lines, translation }  a translation arrived
