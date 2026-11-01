@@ -49,6 +49,15 @@ interface Oxelis {
     add(def: { id: string; name?: string; run(args?: any): any }): void;
   };
 
+  ml: {
+    // wired. Needs "permissions": { "ml": true }. The model is an .onnx file inside the plugin folder (at most 8 per plugin).
+    load(path: string): {
+      inputs: string[];
+      outputs: string[];
+      run(feeds: Record<string, OxelisTensor>, wanted?: string[]): Record<string, OxelisTensor>;
+    };
+  };
+
   ui: {
     // wired. A button in the editor's toolbar, at the end of its group. `icon` is one or two characters.
     // The manifest must list "buttons" in `provides`, or the plugin is not started in the editor.
@@ -101,6 +110,8 @@ interface Oxelis {
   //   'translated' { x, y, w, h, lines, translation }  a translation arrived
   on(event: string, handler: (payload: any) => any | Promise<any>): void;
 }
+
+interface OxelisTensor { dtype?: 'float32' | 'int64' | 'int32' | 'uint8' | 'bool'; shape: number[]; data: number[] }
 
 interface Selection { x: number; y: number; w: number; h: number }
 

@@ -1,0 +1,9 @@
+{
+  "id": "hello-ml",
+  "name": "Hello ML",
+  "version": "0.1.0",
+  "author": "you",
+  "description": "A button that runs a tiny ONNX model (it doubles numbers) to show how oxelis.ml works.",
+  "provides": ["buttons"],
+  "permissions": { "ml": true }
+}

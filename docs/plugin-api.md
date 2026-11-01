@@ -24,6 +24,7 @@ my-plugin/
 | `permissions.net` also accepts `localhost` / `127.0.0.1` | `http://` is allowed to this machine only (Ollama, LibreTranslate); every other address must be `https://` |
 | `ocr` | a model pack: `{ "engine": "ppocr", "det", "rec", "dict", "runtime" }`, files inside the plugin folder; needs no `main.js` (see `official/ocr-ppocr`) |
 | `secret: true` on a setting | stored sealed with Windows DPAPI, bound to the user's account |
+| `permissions.ml` | `true` lets the plugin load and run `.onnx` models from its own folder (`oxelis.ml`, see `templates/hello-ml`) |
 | `permissions.clipboard` | `true` lets `oxelis.app.copy` put text on the clipboard |
 
 ## main.js
@@ -96,3 +97,13 @@ The plugin host is the crate `oxelis-plugins` in the Oxelis repository; its test
 ## MCP
 
 `official/mcp-server` is the switch for the MCP bridge (`oxelis-host.exe`). It has no logic: while it is installed and enabled, AI assistants may use the tools listed in its `allowed_tools` setting (`read_screen_text`, `translate_text`, `screenshot`; the last is off by default). `provides: ["mcp"]` marks such plugins.
+
+## Models (`oxelis.ml`)
+
+```js
+const model = oxelis.ml.load('models/encoder.onnx');          // inside the plugin folder; permissions.ml required
+const out = model.run({ input_ids: { dtype: 'int64', shape: [1, 4], data: [5, 9, 2, 0] } }, ['last_hidden_state']);
+out.last_hidden_state.shape; out.last_hidden_state.data;       // flat numbers
+```
+
+The host runs the model (ONNX Runtime, CPU). Tensors travel as JSON, so keep outputs small (a few tens of thousands of numbers per call). Use this to ship your own translation or OCR engine as a plugin; tokenizers and search loops are plain JavaScript.

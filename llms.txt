@@ -18,3 +18,4 @@ Rules that matter:
 
 - Plain http:// is allowed only to localhost / 127.0.0.1 (list `localhost` in permissions.net, or take the address from a netFromSettings setting). Everything else must be https.
 - OCR model packs: manifest `ocr: {engine:'ppocr', det, rec, dict, runtime}`; no main.js needed. Settings with secret:true are stored DPAPI-sealed.
+- Models: permissions.ml=true, then `const m = oxelis.ml.load('models/x.onnx'); m.run({name:{dtype,shape,data}}, wanted?)` -> {name:{dtype,shape,data}}. Max 8 models, files inside the plugin folder, tensors are JSON (keep them small). See templates/hello-ml.
