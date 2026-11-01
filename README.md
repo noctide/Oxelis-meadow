@@ -45,3 +45,15 @@ A plugin is a folder with a `manifest.json` and a `main.js`. Each plugin runs in
 ## Publish a community plugin
 
 Put your plugin in its own repository (the files at the top level, or in a folder named like the id), give the repository the GitHub topic `oxelis-plugin`, then open a pull request that adds an entry to [`community/index.json`](community/index.json).
+
+
+## Catalog and signing
+
+`index.json` is the signed list the app's plugin manager browses (「在线浏览…」). `dist/` holds the archives it points to.
+Both are generated, do not edit them by hand:
+
+```
+cargo run --release -p oxelis-plugins --features tool --bin oxelis-sign -- index . https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist <secret-key-file>
+```
+
+The app only trusts an index signed with the key compiled into it, and only installs an archive whose SHA-256 matches the signed entry.
