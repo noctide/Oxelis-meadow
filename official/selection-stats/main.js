@@ -1,7 +1,7 @@
 module.exports = {
   onload(oxelis) {
     oxelis.ui.addPanel({
-      id: 'stats', title: oxelis.t('stats.title'), icon: 'Σ', group: 'recognize', anchor: 'right',
+      id: 'stats', when: 'result', title: oxelis.t('stats.title'), icon: 'Σ', group: 'recognize', anchor: 'right',
       render(sel) {
         const out = [oxelis.t('stats.area', sel.w, sel.h)];
         const text = oxelis.app.text();

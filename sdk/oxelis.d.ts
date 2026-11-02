@@ -70,6 +70,7 @@ interface Oxelis {
       group?: 'draw' | 'history' | 'local' | 'recognize' | 'output';
       icon: string;
       tip?: string;
+      when?: 'editing' | 'result' | 'always';
       run(selection: Selection): void | Promise<void>;
     }): void;
     // Implemented. A text panel next to the selection (or under the toolbar with anchor 'bottom'); it gets a toolbar
@@ -81,6 +82,7 @@ interface Oxelis {
       icon?: string;
       group?: 'draw' | 'history' | 'local' | 'recognize' | 'output';
       anchor?: 'right' | 'bottom';
+      when?: 'editing' | 'result' | 'always';
       render(selection: Selection): string[] | Promise<string[]>;
     }): void;
     // Implemented. Built-in buttons to remove ('eraser', 'star'...). 'cancel' and 'translate' stay.

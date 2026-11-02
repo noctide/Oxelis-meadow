@@ -75,6 +75,7 @@ module.exports = {
 };
 ```
 
+- **`when`**: `addButton` and `addPanel` take `when: 'editing' | 'result' | 'always'` (default `always`). `result` buttons appear only after recognition or translation, in the strip under the result panel; `editing` buttons only in the editing toolbar.
 - **Buttons** join the end of their group (`draw`, `history`, `local`, `recognize`, `output`). `run` gets the selection `{x, y, w, h}`.
 - **Panels** are text boxes; the user switches them on with their toolbar button. `render` returns an array of lines.
 - **`oxelis.ui.hide([...])`** removes built-in buttons; `cancel` and `translate` cannot be hidden.

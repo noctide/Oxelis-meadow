@@ -16,8 +16,8 @@
       "kinds": [],
       "name": "繁體中文（台灣）",
       "net": [],
-      "sha256": "4d3fc0038b17b40f2db031a502b080186f716a80e48d6fb8a31d2896ad9c541f",
-      "size": 3752,
+      "sha256": "4719e88e3f036dcf6c6b470f5fee2baa16bac48149939c5ea7fadfd63cfa0731",
+      "size": 3840,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/language-zh-tw-0.1.0.zip",
       "version": "0.1.0"
@@ -48,8 +48,8 @@
       ],
       "name": "Selection statistics",
       "net": [],
-      "sha256": "bcd90581ce5f3854d68ac0d27364937ee3841b461cb35770596051357b63d25c",
-      "size": 1246,
+      "sha256": "3d5673d6479b5da759e9e9e0bb899a47905f054f3bf13d2f621558345b206d30",
+      "size": 1255,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/selection-stats-0.1.0.zip",
       "version": "0.1.0"
@@ -65,8 +65,8 @@
       ],
       "name": "Text tools",
       "net": [],
-      "sha256": "a3f03a75a5851bec583b92b216be6d2caa784f2b96fd8384fbddb6484e4e901e",
-      "size": 1405,
+      "sha256": "93c7ab005ec68d4eefb2fbe93ac2c67adff71572c8bc8bbd85f76e3f9f4add87",
+      "size": 1413,
       "tier": "official",
       "url": "https://raw.githubusercontent.com/noctide/oxelis-meadow/main/dist/text-tools-0.1.0.zip",
       "version": "0.1.0"
@@ -192,5 +192,5 @@
       "version": "0.1.0"
     }
   ],
-  "signature": "d97a43b6fa496e42df8cfdd28a0768815e401203aec78954c20256b022a8719edac8589e348b796cb807247dd766485919f8824119fe600dc7544b4b694a6b0b"
+  "signature": "4ca61b30bb6782d2216721f4170de4274b504845b0fb19cba255b1313ab982f3d61199683a1d4b8d68c6aa352ea8b629a961c10327c8c79baa338ead1ac5230e"
 }

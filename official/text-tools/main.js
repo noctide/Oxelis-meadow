@@ -6,7 +6,7 @@ module.exports = {
     oxelis.on('ocr', (e) => e.lines.map((l) => l.replace(/\s+$/, '')));
 
     oxelis.ui.addButton({
-      id: 'join', group: 'recognize', icon: '¶', tip: oxelis.t('tools.join.tip'),
+      id: 'join', when: 'result', group: 'recognize', icon: '¶', tip: oxelis.t('tools.join.tip'),
       run() {
         const t = oxelis.app.text();
         if (!t) return oxelis.app.notify(oxelis.t('tools.nothing'));
@@ -15,7 +15,7 @@ module.exports = {
       },
     });
     oxelis.ui.addButton({
-      id: 'compact', group: 'recognize', icon: '≡', tip: oxelis.t('tools.compact.tip'),
+      id: 'compact', when: 'result', group: 'recognize', icon: '≡', tip: oxelis.t('tools.compact.tip'),
       run() {
         const t = oxelis.app.text();
         if (!t) return oxelis.app.notify(oxelis.t('tools.nothing'));
