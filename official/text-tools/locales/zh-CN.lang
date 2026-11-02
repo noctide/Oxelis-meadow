@@ -1,0 +1,5 @@
+tools.join.tip = 合并为一段并复制
+tools.compact.tip = 去掉空行并复制
+tools.nothing = 还没有识别结果
+tools.joined = 已合并为一段并复制
+tools.compacted = 已去掉空行并复制

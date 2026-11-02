@@ -124,3 +124,7 @@ Names must be written exactly as their owners write them. If the license cannot 
 ## Interface languages
 
 A language pack is a plugin whose manifest has a `language` entry and whose folder holds a catalog file. Start from `templates/hello-language`: it is the English catalog, with one entry per line (`key = value`). Translate the values only. `\n` is a line break, `\s` a space, and `{0}`, `{1}` are filled in by the program and must be kept. The language is chosen from the Windows language (or `OXELIS_LANG`); a key the pack lacks is shown in English.
+
+## Plugin texts (`oxelis.t`)
+
+Texts a plugin shows (button tips, panel lines, notices) belong in `locales/<code>.lang` inside the plugin folder, one `key = value` per line (see Interface languages above for the format). Write `oxelis.t('key', arg0, arg1)`; `{0}` and `{1}` in the value are replaced by the arguments. The user's language is served first, English underneath, and a key without any text is shown as the key. Provide at least `locales/en.lang`.

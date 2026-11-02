@@ -6,21 +6,21 @@ module.exports = {
     oxelis.on('ocr', (e) => e.lines.map((l) => l.replace(/\s+$/, '')));
 
     oxelis.ui.addButton({
-      id: 'join', group: 'recognize', icon: '¶', tip: '合并为一段并复制',
+      id: 'join', group: 'recognize', icon: '¶', tip: oxelis.t('tools.join.tip'),
       run() {
         const t = oxelis.app.text();
-        if (!t) return oxelis.app.notify('还没有识别结果');
+        if (!t) return oxelis.app.notify(oxelis.t('tools.nothing'));
         oxelis.app.copy(t.split('\n').map((l) => l.trim()).filter(Boolean).join(' '));
-        oxelis.app.notify('已合并为一段并复制');
+        oxelis.app.notify(oxelis.t('tools.joined'));
       },
     });
     oxelis.ui.addButton({
-      id: 'compact', group: 'recognize', icon: '≡', tip: '去掉空行并复制',
+      id: 'compact', group: 'recognize', icon: '≡', tip: oxelis.t('tools.compact.tip'),
       run() {
         const t = oxelis.app.text();
-        if (!t) return oxelis.app.notify('还没有识别结果');
+        if (!t) return oxelis.app.notify(oxelis.t('tools.nothing'));
         oxelis.app.copy(t.split('\n').filter((l) => l.trim() !== '').join('\n'));
-        oxelis.app.notify('已去掉空行并复制');
+        oxelis.app.notify(oxelis.t('tools.compacted'));
       },
     });
   },

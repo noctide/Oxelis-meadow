@@ -1,0 +1,6 @@
+stats.title = 统计
+stats.area = 区域  {0} × {1}
+stats.after = 识别后显示行数和字数
+stats.lines = 行  {0}
+stats.words = 词/字  {0}
+stats.chars = 字符  {0}

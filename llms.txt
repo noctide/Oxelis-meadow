@@ -18,3 +18,4 @@ Rules:
 - Registered but not yet invoked by the application: ocr services and commands.
 - References: sdk/oxelis.d.ts (types), docs/plugin-api.md (API reference), official/*/main.js (examples).
 - Interface languages: manifest `language: { code, name, strings }` plus a catalog file of `key = value` lines (see templates/hello-language); no main.js, no permissions.
+- Texts: put user-visible strings in locales/<code>.lang (key = value, {0} {1} placeholders; at least en.lang) and read them with oxelis.t('key', ...args). Never hard-code a language.

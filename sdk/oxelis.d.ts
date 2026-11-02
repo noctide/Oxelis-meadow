@@ -49,6 +49,10 @@ interface Oxelis {
     add(def: { id: string; name?: string; run(args?: any): any }): void;
   };
 
+  // Implemented. The plugin's own text in the user's language, from locales/<code>.lang; English when the language lacks the key,
+  // the key itself when no catalog has it. {0}, {1}... are replaced by the arguments.
+  t(key: string, ...args: any[]): string;
+
   ml: {
     // Implemented. Needs "permissions": { "ml": true }. The model is an .onnx file inside the plugin folder (at most 8 per plugin).
     load(path: string): {

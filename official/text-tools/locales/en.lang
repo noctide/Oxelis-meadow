@@ -1,0 +1,5 @@
+tools.join.tip = Join into one paragraph and copy
+tools.compact.tip = Remove blank lines and copy
+tools.nothing = Nothing has been recognized yet
+tools.joined = Joined into one paragraph and copied
+tools.compacted = Blank lines removed and copied

@@ -1,0 +1,6 @@
+stats.title = Statistics
+stats.area = Area  {0} × {1}
+stats.after = Lines, words and characters appear after recognition
+stats.lines = Lines  {0}
+stats.words = Words  {0}
+stats.chars = Characters  {0}
